@@ -1,0 +1,1 @@
+class_name Zombie extends CharacterBody2D

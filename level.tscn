@@ -1,17 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdgxphbkkgn3x"]
 
 [ext_resource type="PackedScene" uid="uid://s4ysxh3xnveh" path="res://entities/player.tscn" id="1_vonw3"]
-[ext_resource type="Texture2D" uid="uid://br3ifyc2rlrmn" path="res://icon.svg" id="2_oi3di"]
+[ext_resource type="Script" uid="uid://delpi66snvovv" path="res://level_generator.gd" id="2_vonw3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vonw3"]
 
 [node name="Level" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_vonw3")]
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(-79, -221)
-texture = ExtResource("2_oi3di")
+[node name="Player" parent="." node_paths=PackedStringArray("power_label") instance=ExtResource("1_vonw3")]
+power_label = NodePath("../CanvasLayer/Control/PanelContainer/MarginContainer/Power")
 
 [node name="WorldBorders" type="Node2D" parent="."]
 
@@ -28,3 +25,36 @@ rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/Left"]
 shape = SubResource("WorldBoundaryShape2D_vonw3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Power" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Power : 1"
+
+[node name="LevelGenerator" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("2_vonw3")
+player = NodePath("../Player")
+metadata/_custom_type_script = "uid://delpi66snvovv"
