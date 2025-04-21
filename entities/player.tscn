@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://s4ysxh3xnveh"]
+
+[ext_resource type="Script" uid="uid://dxdfn4lnu72mn" path="res://entities/player.gd" id="1_merdl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3f3p"]
+size = Vector2(38, 68)
+
+[sub_resource type="Gradient" id="Gradient_merdl"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b0kkn"]
+gradient = SubResource("Gradient_merdl")
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_merdl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u3f3p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.59375, 1.07812)
+texture = SubResource("GradientTexture2D_b0kkn")
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdgxphbkkgn3x"]
+
+[ext_resource type="PackedScene" uid="uid://s4ysxh3xnveh" path="res://entities/player.tscn" id="1_vonw3"]
+[ext_resource type="Texture2D" uid="uid://br3ifyc2rlrmn" path="res://icon.svg" id="2_oi3di"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vonw3"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_vonw3")]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-79, -221)
+texture = ExtResource("2_oi3di")
+
+[node name="WorldBorders" type="Node2D" parent="."]
+
+[node name="Right" type="RigidBody2D" parent="WorldBorders"]
+position = Vector2(200, 0)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/Right"]
+shape = SubResource("WorldBoundaryShape2D_vonw3")
+
+[node name="temp" type="RigidBody2D" parent="WorldBorders"]
+position = Vector2(0, -200)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/temp"]
+shape = SubResource("WorldBoundaryShape2D_vonw3")
+
+[node name="Left" type="RigidBody2D" parent="WorldBorders"]
+position = Vector2(-200, 0)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/Left"]
+shape = SubResource("WorldBoundaryShape2D_vonw3")
