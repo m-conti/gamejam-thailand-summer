@@ -1,18 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://s4ysxh3xnveh"]
+[gd_scene load_steps=5 format=3 uid="uid://s4ysxh3xnveh"]
 
 [ext_resource type="Script" uid="uid://dxdfn4lnu72mn" path="res://entities/player.gd" id="1_merdl"]
+[ext_resource type="Texture2D" uid="uid://bvo0ub1obdcnk" path="res://assets/Cars/Car_3_Main_Positions/Car_3_01.png" id="2_b0kkn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u3f3p"]
-size = Vector2(38, 68)
-
-[sub_resource type="Gradient" id="Gradient_merdl"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_b0kkn"]
-gradient = SubResource("Gradient_merdl")
+size = Vector2(44, 99)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_merdl"]
-size = Vector2(124, 144)
+size = Vector2(84, 109)
 
 [node name="Player" type="RigidBody2D"]
 collision_layer = 3
@@ -24,8 +19,8 @@ power = 100
 shape = SubResource("RectangleShape2D_u3f3p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.59375, 1.07812)
-texture = SubResource("GradientTexture2D_b0kkn")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_b0kkn")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
