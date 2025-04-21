@@ -1,11 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdgxphbkkgn3x"]
+[gd_scene load_steps=9 format=3 uid="uid://bdgxphbkkgn3x"]
 
 [ext_resource type="PackedScene" uid="uid://s4ysxh3xnveh" path="res://entities/player.tscn" id="1_vonw3"]
 [ext_resource type="Script" uid="uid://delpi66snvovv" path="res://level_generator.gd" id="2_vonw3"]
 [ext_resource type="PackedScene" uid="uid://bumv2gl7e517t" path="res://entities/zombie.tscn" id="3_oi3di"]
 [ext_resource type="PackedScene" uid="uid://c6a1uvpnbxyih" path="res://entities/police.tscn" id="4_0b4ue"]
+[ext_resource type="Texture2D" uid="uid://bh25httbaufb3" path="res://assets/Cars/Road_02/tileset.png" id="5_f2txt"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vonw3"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ainy"]
+texture = ExtResource("5_f2txt")
+texture_region_size = Vector2i(688, 954)
+2:0/0 = 0
+7:0/0 = 0
+6:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_n6hdu"]
+tile_size = Vector2i(512, 512)
+sources/3 = SubResource("TileSetAtlasSource_1ainy")
 
 [node name="Level" type="Node2D"]
 
@@ -15,14 +32,14 @@ power_label = NodePath("../CanvasLayer/Control/PanelContainer/MarginContainer/Po
 [node name="WorldBorders" type="Node2D" parent="."]
 
 [node name="Right" type="StaticBody2D" parent="WorldBorders"]
-position = Vector2(200, 0)
+position = Vector2(500, 0)
 rotation = -1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/Right"]
 shape = SubResource("WorldBoundaryShape2D_vonw3")
 
 [node name="Left" type="StaticBody2D" parent="WorldBorders"]
-position = Vector2(-200, 0)
+position = Vector2(-500, 0)
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/Left"]
@@ -58,6 +75,13 @@ text = "Power : 1"
 
 [node name="LevelGenerator" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("2_vonw3")
+x_min = -500.0
+x_max = 500.0
 player = NodePath("../Player")
 entity_scenes = Array[PackedScene]([ExtResource("3_oi3di"), ExtResource("4_0b4ue")])
 metadata/_custom_type_script = "uid://delpi66snvovv"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-1, 0)
+tile_map_data = PackedByteArray(0, 0, 44, 0, 217, 255, 3, 0, 2, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_n6hdu")

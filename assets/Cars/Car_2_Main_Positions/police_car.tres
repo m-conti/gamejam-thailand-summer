@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://6m3ycqysnh1m"]
+
+[ext_resource type="Texture2D" uid="uid://d32yr387ox04k" path="res://assets/Cars/Car_2_Main_Positions/Car_2_01.png" id="1_bmqwx"]
+[ext_resource type="Texture2D" uid="uid://c1cu1qxlkofjy" path="res://assets/Cars/Car_2_Main_Positions/Car_2_02.png" id="2_waaas"]
+[ext_resource type="Texture2D" uid="uid://yjumnkq1i4pp" path="res://assets/Cars/Car_2_Main_Positions/Car_2_03.png" id="3_fb666"]
+[ext_resource type="Texture2D" uid="uid://dw26d0d24w74d" path="res://assets/Cars/Car_2_Main_Positions/Car_2_04.png" id="4_i0r20"]
+[ext_resource type="Texture2D" uid="uid://btfdr0oe4blst" path="res://assets/Cars/Car_2_Main_Positions/Car_2_05.png" id="5_7oilv"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bmqwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_waaas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fb666")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_i0r20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7oilv")
+}],
+"loop": true,
+"name": &"break",
+"speed": 5.0
+}]

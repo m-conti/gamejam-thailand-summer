@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://lwotdkg80g2g"]
+
+[ext_resource type="Texture2D" uid="uid://7ovhwlmd11d" path="res://assets/Cars/Car_Effects/Smoke/Smoke_000.png" id="1_chnd1"]
+[ext_resource type="Texture2D" uid="uid://b6c86n1so83cn" path="res://assets/Cars/Car_Effects/Smoke/Smoke_001.png" id="2_6cksk"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_chnd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6cksk")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]

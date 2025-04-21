@@ -21,7 +21,24 @@ var chuncks: Array[Node2D] = []
 func get_random_entity() -> Entity:
 	var entity: Entity = entity_scenes.pick_random().instantiate()
 	entity.init(player)
+	entity.get_node("Sprite2D").flip_v = randf() > 0.5
 	return entity
+
+
+func get_rect(entity: Entity) -> Rect2:
+	var sprite: Sprite2D = entity.get_node("Sprite2D")
+	var rect: Rect2 = sprite.get_rect()
+	if is_equal_approx(sprite.rotation_degrees, 90):
+		rect = Rect2(rect.position.y, rect.position.x, rect.size.y, rect.size.x)
+	elif not is_equal_approx(sprite.rotation_degrees, 0):
+		print("Rotation not supported: ", sprite.rotation_degrees)
+		return Rect2()
+
+	rect.position *= sprite.global_scale
+	rect.position += sprite.global_position
+	rect.size *= sprite.global_scale
+
+	return rect
 
 
 func generate_chunck() -> void:
@@ -39,8 +56,7 @@ func generate_chunck() -> void:
 		for _attempt in MAX_SPAWN_ATTEMPT:
 			var entity: Entity = get_random_entity()
 			entity.position = Vector2(randf_range(x_min, x_max), -(chunck_idx - randf()) * chunck_size)
-			var rect: Rect2 = entity.get_node("Sprite2D").get_rect()
-			rect.position += entity.position
+			var rect: Rect2 = get_rect(entity)
 
 			if not chunck_rect.encloses(rect):
 				continue

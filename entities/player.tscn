@@ -14,9 +14,11 @@ gradient = SubResource("Gradient_merdl")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_merdl"]
 size = Vector2(124, 144)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="RigidBody2D"]
 collision_layer = 3
+lock_rotation = true
 script = ExtResource("1_merdl")
+power = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_u3f3p")
