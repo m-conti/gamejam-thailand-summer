@@ -11,14 +11,17 @@ const MAX_SPAWN_ATTEMPT = 50
 @export var entities_per_chunck: int = 10
 
 @export var player: Player
+@export var entity_scenes: Array[PackedScene] = []
 
 var min_chunck_idx: int = 0
 var max_chunck_idx: int = 0
 var chuncks: Array[Node2D] = []
 
 
-func get_random_entity() -> Node:
-	return preload("res://entities/zombie.tscn").instantiate()
+func get_random_entity() -> Entity:
+	var entity: Entity = entity_scenes.pick_random().instantiate()
+	entity.init(player)
+	return entity
 
 
 func generate_chunck() -> void:
@@ -34,7 +37,7 @@ func generate_chunck() -> void:
 
 	for i in entities_per_chunck:
 		for _attempt in MAX_SPAWN_ATTEMPT:
-			var entity: Zombie = get_random_entity()
+			var entity: Entity = get_random_entity()
 			entity.position = Vector2(randf_range(x_min, x_max), -(chunck_idx - randf()) * chunck_size)
 			var rect: Rect2 = entity.get_node("Sprite2D").get_rect()
 			rect.position += entity.position

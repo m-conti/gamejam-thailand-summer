@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://brb4i24x1cxhi"]
+
+[ext_resource type="Script" uid="uid://bskt3l4ntq4hc" path="res://entities/bullet.gd" id="1_j06he"]
+
+[sub_resource type="Gradient" id="Gradient_gbfys"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hht6g"]
+gradient = SubResource("Gradient_gbfys")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hht6g"]
+size = Vector2(64, 64)
+
+[node name="Bullet" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 2
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_j06he")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = SubResource("GradientTexture2D_hht6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_hht6g")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

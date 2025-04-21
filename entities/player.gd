@@ -1,4 +1,4 @@
-class_name Player extends CharacterBody2D
+class_name Player extends Entity
 
 
 @export var speed: float = 400
@@ -8,6 +8,10 @@ class_name Player extends CharacterBody2D
 
 var power: int = 1:
 	set(x):
+		if x <= 0:
+			die()
+			return
+
 		power = x
 		power_label.text = "Power : " + str(power)
 
@@ -27,3 +31,7 @@ func _on_eatting_zone_body_entered(body: Node2D) -> void:
 	
 	body.queue_free()
 	power += 1
+
+
+func die():
+	get_tree().change_scene_to_file.call_deferred("res://game_over.tscn")
