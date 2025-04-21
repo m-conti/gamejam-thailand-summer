@@ -15,21 +15,14 @@ texture = ExtResource("2_oi3di")
 
 [node name="WorldBorders" type="Node2D" parent="."]
 
-[node name="Right" type="RigidBody2D" parent="WorldBorders"]
+[node name="Right" type="StaticBody2D" parent="WorldBorders"]
 position = Vector2(200, 0)
 rotation = -1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/Right"]
 shape = SubResource("WorldBoundaryShape2D_vonw3")
 
-[node name="temp" type="RigidBody2D" parent="WorldBorders"]
-position = Vector2(0, -200)
-rotation = 3.14159
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/temp"]
-shape = SubResource("WorldBoundaryShape2D_vonw3")
-
-[node name="Left" type="RigidBody2D" parent="WorldBorders"]
+[node name="Left" type="StaticBody2D" parent="WorldBorders"]
 position = Vector2(-200, 0)
 rotation = 1.5708
 
