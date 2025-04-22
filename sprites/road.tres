@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cgqv70nju2sun"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cgqv70nju2sun"]
 
 [ext_resource type="Texture2D" uid="uid://cwctd3cljpw1o" path="res://assets/Cars/Road_02/Untitled.png" id="1_3cyhj"]
+[ext_resource type="Texture2D" uid="uid://brinxj43s6liw" path="res://assets/Cars/Road_02/border.png" id="2_riahr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_riahr"]
 resource_name = "road"
@@ -151,6 +152,17 @@ texture_region_size = Vector2i(512, 512)
 34:3/0 = 0
 35:3/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_75hpk"]
+resource_name = "border"
+texture = ExtResource("2_riahr")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, -204.8, -256, -204.8, 256, -256, 256)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(256, -256, 204.8, -256, 204.8, 256, 256, 256)
+
 [resource]
 tile_size = Vector2i(512, 512)
+physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_riahr")
+sources/2 = SubResource("TileSetAtlasSource_75hpk")

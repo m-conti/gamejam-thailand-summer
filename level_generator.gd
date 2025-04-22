@@ -6,10 +6,11 @@ const MAX_SPAWN_ATTEMPT = 50
 
 var ChunkScn = load("res://map/map_chunk.tscn")
 
-@export var x_min: float = -1024
-@export var x_max: float = 1024
+@export var chunk_height := 2
+@export var chunk_width := 4
 
-@export var chunk_size: float = 1024
+const CHUNK_PART_SIZE := 512
+
 @export var entities_per_chunk: int = 10
 
 @export var player: Player
@@ -48,6 +49,8 @@ func generate_chunk() -> void:
 
 	var entities_rect: Array[Rect2] = []
 	var chunk: MapChunk = ChunkScn.instantiate()
+	chunk.chunk_height = chunk_height
+	chunk.chunk_width = chunk_width
 	add_child(chunk)
 	chunks.append(chunk)
 	chunk.set_index(chunk_idx)
@@ -85,9 +88,9 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if -player.position.y > (min_chunk_idx + 2) * chunk_size:
+	if -player.position.y > (min_chunk_idx + 2) * (chunk_height * CHUNK_PART_SIZE):
 		remove_chunk()
 	
-	if -player.position.y > (max_chunk_idx - 1) * chunk_size:
+	if -player.position.y > (max_chunk_idx - 1) * (chunk_height * CHUNK_PART_SIZE):
 		generate_chunk()
 		
