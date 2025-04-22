@@ -14,5 +14,5 @@ func _on_bullet_shoot_timeout() -> void:
 	add_child(bullet)
 
 
-func _on_police_inited(player):
-	self.player = player
+func _on_police_inited(player_: Player) -> void:
+	player = player_

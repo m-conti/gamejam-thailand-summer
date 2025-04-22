@@ -14,15 +14,29 @@ const CHUNK_PART_SIZE := 512
 @export var entities_per_chunk: int = 10
 
 @export var player: Player
-@export var entity_scenes: Array[PackedScene] = []
+@export var entity_scenes: Dictionary[PackedScene, float] = {}
 
 var min_chunk_idx: int = 0
 var max_chunk_idx: int = 0
 var chunks: Array[Node2D] = []
 
 
+func pick_from_proba_dist(proba_dist: Dictionary) -> Variant:
+	var total: float = 0
+	for value in proba_dist.values():
+		total += value
+
+	var rand: float = randf() * total
+	for key in proba_dist.keys():
+		rand -= proba_dist[key]
+		if rand <= 0:
+			return key
+
+	return null
+
+
 func get_random_entity() -> Entity:
-	var entity: Entity = entity_scenes.pick_random().instantiate()
+	var entity: Entity = pick_from_proba_dist(entity_scenes).instantiate()
 	entity.init(player)
 	entity.get_node("Sprite2D").flip_v = randf() > 0.5
 	return entity
