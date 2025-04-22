@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3brah3h0gcdl"]
+
+[ext_resource type="PackedScene" uid="uid://c6a1uvpnbxyih" path="res://entities/police.tscn" id="1_1tn58"]
+[ext_resource type="SpriteFrames" uid="uid://bpy3losqdpy7j" path="res://sprites/human.tres" id="2_20djd"]
+[ext_resource type="Script" uid="uid://bvnde0ovsaa04" path="res://entities/police_man.gd" id="3_tp3hp"]
+
+[node name="Police" instance=ExtResource("1_1tn58")]
+
+[node name="PoliceMan" type="AnimatedSprite2D" parent="." index="3"]
+sprite_frames = ExtResource("2_20djd")
+script = ExtResource("3_tp3hp")
+
+[node name="BulletShoot" type="Timer" parent="PoliceMan" index="0"]
+autostart = true

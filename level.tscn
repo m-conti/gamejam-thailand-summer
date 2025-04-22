@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdgxphbkkgn3x"]
+[gd_scene load_steps=11 format=3 uid="uid://bdgxphbkkgn3x"]
 
 [ext_resource type="Script" uid="uid://wrbnb8dxegbt" path="res://GameState.gd" id="1_1ainy"]
 [ext_resource type="PackedScene" uid="uid://s4ysxh3xnveh" path="res://entities/player.tscn" id="1_vonw3"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bedbdf12s0ku7" path="res://labels/Distance.gd" id="3_n6hdu"]
 [ext_resource type="PackedScene" uid="uid://bumv2gl7e517t" path="res://entities/zombie.tscn" id="3_oi3di"]
 [ext_resource type="PackedScene" uid="uid://c6a1uvpnbxyih" path="res://entities/police.tscn" id="4_0b4ue"]
-[ext_resource type="PackedScene" uid="uid://bavuufd0fwb62" path="res://entities/barrage.tscn" id="5_1ainy"]
+[ext_resource type="PackedScene" path="res://entities/barrage.tscn" id="5_1ainy"]
 [ext_resource type="TileSet" uid="uid://cgqv70nju2sun" path="res://sprites/road.tres" id="5_f2txt"]
 [ext_resource type="Script" uid="uid://duu2sqnd7d1te" path="res://labels/Speed.gd" id="5_i2t4f"]
 
