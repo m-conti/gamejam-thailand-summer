@@ -1,14 +1,188 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3brah3h0gcdl"]
+[gd_scene load_steps=10 format=3 uid="uid://b3brah3h0gcdl"]
 
 [ext_resource type="PackedScene" uid="uid://c6a1uvpnbxyih" path="res://entities/police.tscn" id="1_1tn58"]
-[ext_resource type="SpriteFrames" uid="uid://bpy3losqdpy7j" path="res://sprites/human.tres" id="2_20djd"]
+[ext_resource type="Texture2D" uid="uid://bpmw6llp52wgb" path="res://assets/Player/Idle.png" id="3_t8huq"]
 [ext_resource type="Script" uid="uid://bvnde0ovsaa04" path="res://entities/police_man.gd" id="3_tp3hp"]
+[ext_resource type="Texture2D" uid="uid://c26s8bfp15vsh" path="res://assets/Player/Shoot.png" id="4_t8huq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g35pl"]
+radius = 20.025
+
+[sub_resource type="Animation" id="Animation_g35pl"]
+resource_name = "shoot"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_t8huq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_wvoun"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_t8huq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_jfem8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_t8huq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xokjr"]
+_data = {
+&"RESET": SubResource("Animation_jfem8"),
+&"idle": SubResource("Animation_wvoun"),
+&"shoot": SubResource("Animation_g35pl")
+}
 
 [node name="Police" instance=ExtResource("1_1tn58")]
 
-[node name="PoliceMan" type="AnimatedSprite2D" parent="." index="3"]
-sprite_frames = ExtResource("2_20djd")
+[node name="PoliceMan" type="RigidBody2D" parent="." index="3"]
+position = Vector2(18, 36)
 script = ExtResource("3_tp3hp")
 
 [node name="BulletShoot" type="Timer" parent="PoliceMan" index="0"]
 autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PoliceMan" index="1"]
+texture_filter = 1
+position = Vector2(0, -12)
+scale = Vector2(2, 2)
+texture = ExtResource("3_t8huq")
+hframes = 3
+vframes = 4
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PoliceMan" index="2"]
+shape = SubResource("CircleShape2D_g35pl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PoliceMan" index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_xokjr")
+}
+autoplay = "idle"
+
+[connection signal="inited" from="." to="PoliceMan" method="_on_police_inited"]
+[connection signal="timeout" from="PoliceMan/BulletShoot" to="PoliceMan" method="_on_bullet_shoot_timeout"]

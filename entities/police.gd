@@ -1,12 +1,7 @@
 class_name Police extends Entity
 
-const bullet_scene: PackedScene = preload("res://entities/bullet.tscn")
 
-
-@export var bullet_speed: float = 100
 var crashed: bool = false
-
-
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if crashed or state.get_contact_count() == 0:

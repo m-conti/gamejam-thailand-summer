@@ -1,4 +1,9 @@
-extends AnimatedSprite2D
+extends Entity
+
+
+@export var bullet_speed: float = 600
+
+const bullet_scene: PackedScene = preload("res://entities/bullet.tscn")
 
 
 func _on_bullet_shoot_timeout() -> void:
@@ -7,3 +12,7 @@ func _on_bullet_shoot_timeout() -> void:
 	bullet.linear_velocity = bullet_speed * Vector2.from_angle(bullet.rotation)
 
 	add_child(bullet)
+
+
+func _on_police_inited(player):
+	self.player = player

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdgxphbkkgn3x"]
+[gd_scene load_steps=12 format=3 uid="uid://bdgxphbkkgn3x"]
 
 [ext_resource type="Script" uid="uid://wrbnb8dxegbt" path="res://GameState.gd" id="1_1ainy"]
 [ext_resource type="PackedScene" uid="uid://s4ysxh3xnveh" path="res://entities/player.tscn" id="1_vonw3"]
@@ -7,9 +7,10 @@
 [ext_resource type="Script" uid="uid://bedbdf12s0ku7" path="res://labels/Distance.gd" id="3_n6hdu"]
 [ext_resource type="PackedScene" uid="uid://bumv2gl7e517t" path="res://entities/zombie.tscn" id="3_oi3di"]
 [ext_resource type="PackedScene" uid="uid://c6a1uvpnbxyih" path="res://entities/police.tscn" id="4_0b4ue"]
-[ext_resource type="PackedScene" path="res://entities/barrage.tscn" id="5_1ainy"]
+[ext_resource type="PackedScene" uid="uid://bavuufd0fwb62" path="res://entities/barrage.tscn" id="5_1ainy"]
 [ext_resource type="TileSet" uid="uid://cgqv70nju2sun" path="res://sprites/road.tres" id="5_f2txt"]
 [ext_resource type="Script" uid="uid://duu2sqnd7d1te" path="res://labels/Speed.gd" id="5_i2t4f"]
+[ext_resource type="PackedScene" uid="uid://b3brah3h0gcdl" path="res://entities/police_with_police_man.tscn" id="10_2orkt"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_1ainy")
@@ -67,7 +68,7 @@ script = ExtResource("5_i2t4f")
 [node name="LevelGenerator" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("2_vonw3")
 player = NodePath("../Player")
-entity_scenes = Array[PackedScene]([ExtResource("3_oi3di"), ExtResource("4_0b4ue"), ExtResource("5_1ainy")])
+entity_scenes = Array[PackedScene]([ExtResource("3_oi3di"), ExtResource("4_0b4ue"), ExtResource("5_1ainy"), ExtResource("10_2orkt")])
 metadata/_custom_type_script = "uid://delpi66snvovv"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
