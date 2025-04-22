@@ -4,18 +4,20 @@ class_name LevelGenerator extends Node2D
 const MAX_SPAWN_ATTEMPT = 50
 
 
-@export var x_min: float = -200
-@export var x_max: float = 200
+var ChunkScn = load("res://map/map_chunk.tscn")
 
-@export var chunck_size: float = 500
-@export var entities_per_chunck: int = 10
+@export var x_min: float = -1024
+@export var x_max: float = 1024
+
+@export var chunk_size: float = 1024
+@export var entities_per_chunk: int = 10
 
 @export var player: Player
 @export var entity_scenes: Array[PackedScene] = []
 
-var min_chunck_idx: int = 0
-var max_chunck_idx: int = 0
-var chuncks: Array[Node2D] = []
+var min_chunk_idx: int = 0
+var max_chunk_idx: int = 0
+var chunks: Array[Node2D] = []
 
 
 func get_random_entity() -> Entity:
@@ -37,58 +39,55 @@ func get_rect(entity: Entity) -> Rect2:
 	rect.position *= sprite.global_scale
 	rect.position += sprite.global_position
 	rect.size *= sprite.global_scale
-
 	return rect
 
 
-func generate_chunck() -> void:
-	var chunck_idx = max_chunck_idx + 1
-	max_chunck_idx = chunck_idx
+func generate_chunk() -> void:
+	var chunk_idx = max_chunk_idx + 1
+	max_chunk_idx = chunk_idx
 
 	var entities_rect: Array[Rect2] = []
-	var chunck_rect = Rect2(x_min, -chunck_idx * chunck_size, x_max - x_min, chunck_size)
+	var chunk: MapChunk = ChunkScn.instantiate()
+	add_child(chunk)
+	chunks.append(chunk)
+	chunk.set_index(chunk_idx)
 
-	var chunck = Node2D.new()
-	add_child(chunck)
-	chuncks.append(chunck)
-
-	for i in entities_per_chunck:
+	for i in entities_per_chunk:
 		for _attempt in MAX_SPAWN_ATTEMPT:
 			var entity: Entity = get_random_entity()
-			entity.position = Vector2(randf_range(x_min, x_max), -(chunck_idx - randf()) * chunck_size)
+			entity.position = Vector2(randf_range(0, chunk.width), randf_range(0, chunk.height))
 			var rect: Rect2 = get_rect(entity)
 
-			if not chunck_rect.encloses(rect):
+			if not chunk.rect.encloses(rect):
 				continue
-
 			if entities_rect.any(func(other_rect: Rect2): return rect.intersects(other_rect)):
 				continue
-			
+
 			entities_rect.append(rect)
-			chunck.add_child(entity)
+			chunk.add_child(entity)
 			break
 
 
-func remove_chunck() -> void:
-	var chunck = chuncks.pop_front()
-	if chunck == null:
-		print("Trying to remove an unexisting chunck")
+func remove_chunk() -> void:
+	var chunk = chunks.pop_front()
+	if chunk == null:
+		print("Trying to remove an unexisting chunk")
 		return
 
-	min_chunck_idx += 1
+	min_chunk_idx += 1
 
-	chunck.queue_free()
+	chunk.queue_free()
 			
 
 func _ready() -> void:
 	for i in range(1):
-		generate_chunck()
+		generate_chunk()
 
 
 func _process(_delta: float) -> void:
-	if -player.position.y > (min_chunck_idx + 2) * chunck_size:
-		remove_chunck()
+	if -player.position.y > (min_chunk_idx + 2) * chunk_size:
+		remove_chunk()
 	
-	if -player.position.y > (max_chunck_idx - 1) * chunck_size:
-		generate_chunck()
+	if -player.position.y > (max_chunk_idx - 1) * chunk_size:
+		generate_chunk()
 		

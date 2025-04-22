@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsubwbvilqufv"]
+
+[ext_resource type="TileSet" uid="uid://cgqv70nju2sun" path="res://sprites/road.tres" id="1_cklao"]
+[ext_resource type="Script" uid="uid://c2b7b0b6eblu1" path="res://map/map_chunk.gd" id="1_lgirl"]
+
+[node name="MapChunk" type="Node2D"]
+z_index = -1
+script = ExtResource("1_lgirl")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0)
+tile_set = ExtResource("1_cklao")
