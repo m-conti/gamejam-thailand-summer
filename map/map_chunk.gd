@@ -20,7 +20,7 @@ var rect:
 func _ready():
 	for j in range(chunk_height):
 		for i in range(chunk_width):
-			%TileMapLayer.set_cell(Vector2(i, j), 1, Vector2(0, 0))
+			%TileMapLayer.set_cell(Vector2(i, j), 1, Vector2(0 if randi_range(0, 3) != 0 else randi_range(0, 8), 0))
 		%TileMapLayer.set_cell(Vector2(0, j), 2, Vector2(0, 0))
 		%TileMapLayer.set_cell(Vector2(chunk_width - 1, j), 2, Vector2(1, 0))
 
