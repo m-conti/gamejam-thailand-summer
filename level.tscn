@@ -1,16 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdgxphbkkgn3x"]
+[gd_scene load_steps=10 format=3 uid="uid://bdgxphbkkgn3x"]
 
+[ext_resource type="Script" uid="uid://wrbnb8dxegbt" path="res://GameState.gd" id="1_1ainy"]
 [ext_resource type="PackedScene" uid="uid://s4ysxh3xnveh" path="res://entities/player.tscn" id="1_vonw3"]
 [ext_resource type="Script" uid="uid://delpi66snvovv" path="res://level_generator.gd" id="2_vonw3"]
+[ext_resource type="Theme" uid="uid://budnckel7rggg" path="res://hud.tres" id="3_km5ld"]
+[ext_resource type="Script" uid="uid://bedbdf12s0ku7" path="res://labels/Distance.gd" id="3_n6hdu"]
 [ext_resource type="PackedScene" uid="uid://bumv2gl7e517t" path="res://entities/zombie.tscn" id="3_oi3di"]
 [ext_resource type="PackedScene" uid="uid://c6a1uvpnbxyih" path="res://entities/police.tscn" id="4_0b4ue"]
 [ext_resource type="PackedScene" uid="uid://bavuufd0fwb62" path="res://entities/barrage.tscn" id="5_1ainy"]
 [ext_resource type="TileSet" uid="uid://cgqv70nju2sun" path="res://sprites/road.tres" id="5_f2txt"]
+[ext_resource type="Script" uid="uid://duu2sqnd7d1te" path="res://labels/Speed.gd" id="5_i2t4f"]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_1ainy")
 
 [node name="Player" parent="." node_paths=PackedStringArray("power_label") instance=ExtResource("1_vonw3")]
-power_label = NodePath("../CanvasLayer/Control/PanelContainer/MarginContainer/Power")
+unique_name_in_owner = true
+power_label = NodePath("../CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/Power")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -35,10 +41,28 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Power" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Power" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+theme = ExtResource("3_km5ld")
 text = "Power : 1"
+
+[node name="Distance" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("3_km5ld")
+text = "Distance : 0"
+script = ExtResource("3_n6hdu")
+
+[node name="Speed" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("3_km5ld")
+text = "Distance : 0"
+script = ExtResource("5_i2t4f")
 
 [node name="LevelGenerator" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("2_vonw3")
