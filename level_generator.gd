@@ -59,11 +59,11 @@ func generate_chunk() -> void:
 			var entity: Entity = get_random_entity()
 			var rect: Rect2 = get_rect(entity)
 			entity.position = Vector2(randf_range(0, chunk.width - rect.size.x), randf_range(0, chunk.height - rect.size.y))
-			entity.position += rect.size / 2
 			rect.position += entity.global_position
+			entity.position += rect.size / 2
 
-			if not chunk.rect.encloses(rect):
-				continue
+			# if not chunk.rect.encloses(rect):
+			# 	continue
 			if entities_rect.any(func(other_rect: Rect2): return rect.intersects(other_rect)):
 				continue
 

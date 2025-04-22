@@ -12,24 +12,42 @@ gradient = SubResource("Gradient_jisa2")
 script = ExtResource("1_jisa2")
 
 [node name="Police" parent="." instance=ExtResource("1_utad7")]
+position = Vector2(-880, 0)
 
 [node name="Police2" parent="." instance=ExtResource("1_utad7")]
-position = Vector2(160, 0)
+position = Vector2(-720, 0)
 
 [node name="Police3" parent="." instance=ExtResource("1_utad7")]
-position = Vector2(320, 0)
+position = Vector2(-560, 0)
 
 [node name="Police4" parent="." instance=ExtResource("1_utad7")]
-position = Vector2(480, 0)
+position = Vector2(-400, 0)
 
 [node name="Police5" parent="." instance=ExtResource("1_utad7")]
-position = Vector2(640, 0)
+position = Vector2(-240, 0)
 
 [node name="Police6" parent="." instance=ExtResource("1_utad7")]
-position = Vector2(800, 0)
+position = Vector2(-80, 0)
+
+[node name="Police7" parent="." instance=ExtResource("1_utad7")]
+position = Vector2(80, 0)
+
+[node name="Police8" parent="." instance=ExtResource("1_utad7")]
+position = Vector2(240, 0)
+
+[node name="Police9" parent="." instance=ExtResource("1_utad7")]
+position = Vector2(400, 0)
+
+[node name="Police10" parent="." instance=ExtResource("1_utad7")]
+position = Vector2(560, 0)
+
+[node name="Police11" parent="." instance=ExtResource("1_utad7")]
+position = Vector2(720, 0)
+
+[node name="Police12" parent="." instance=ExtResource("1_utad7")]
+position = Vector2(880, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-position = Vector2(400.5, 0)
-scale = Vector2(14.7969, 1)
+scale = Vector2(30, 1.209)
 texture = SubResource("GradientTexture2D_6n6aw")
