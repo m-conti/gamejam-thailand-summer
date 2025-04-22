@@ -1,4 +1,4 @@
-class_name Entity extends RigidBody2D
+class_name Entity extends Node2D
 
 
 var player: Player

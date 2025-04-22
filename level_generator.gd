@@ -38,7 +38,6 @@ func get_rect(entity: Entity) -> Rect2:
 		return Rect2()
 
 	rect.position *= sprite.global_scale
-	rect.position += sprite.global_position
 	rect.size *= sprite.global_scale
 	return rect
 
@@ -58,8 +57,10 @@ func generate_chunk() -> void:
 	for i in entities_per_chunk:
 		for _attempt in MAX_SPAWN_ATTEMPT:
 			var entity: Entity = get_random_entity()
-			entity.position = Vector2(randf_range(0, chunk.width), randf_range(0, chunk.height))
 			var rect: Rect2 = get_rect(entity)
+			entity.position = Vector2(randf_range(0, chunk.width - rect.size.x), randf_range(0, chunk.height - rect.size.y))
+			entity.position += rect.size / 2
+			rect.position += entity.global_position
 
 			if not chunk.rect.encloses(rect):
 				continue

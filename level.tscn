@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdgxphbkkgn3x"]
+[gd_scene load_steps=7 format=3 uid="uid://bdgxphbkkgn3x"]
 
 [ext_resource type="PackedScene" uid="uid://s4ysxh3xnveh" path="res://entities/player.tscn" id="1_vonw3"]
 [ext_resource type="Script" uid="uid://delpi66snvovv" path="res://level_generator.gd" id="2_vonw3"]
 [ext_resource type="PackedScene" uid="uid://bumv2gl7e517t" path="res://entities/zombie.tscn" id="3_oi3di"]
 [ext_resource type="PackedScene" uid="uid://c6a1uvpnbxyih" path="res://entities/police.tscn" id="4_0b4ue"]
+[ext_resource type="PackedScene" uid="uid://bavuufd0fwb62" path="res://entities/barrage.tscn" id="5_1ainy"]
 [ext_resource type="TileSet" uid="uid://cgqv70nju2sun" path="res://sprites/road.tres" id="5_f2txt"]
 
 [node name="Level" type="Node2D"]
@@ -42,7 +43,7 @@ text = "Power : 1"
 [node name="LevelGenerator" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("2_vonw3")
 player = NodePath("../Player")
-entity_scenes = Array[PackedScene]([ExtResource("3_oi3di"), ExtResource("4_0b4ue")])
+entity_scenes = Array[PackedScene]([ExtResource("3_oi3di"), ExtResource("4_0b4ue"), ExtResource("5_1ainy")])
 metadata/_custom_type_script = "uid://delpi66snvovv"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
