@@ -1,10 +1,16 @@
 class_name Player extends RigidBody2D
 
 
-@export var speed: float = 400
+@export var base_speed: float = 500
+@export var max_speed: float = 1500
+@export var max_distance: float = 50_000.0
+
 @export var rotation_speed: float = 2.0
 
 @export var power_label: Label
+
+var speed:
+	get: return base_speed + (max_speed * (tanh(6 * ((self.owner as GameState).distance - max_distance / 2) / max_distance) + 1) / 2)
 
 @export var power: int = 1:
 	set(x):
