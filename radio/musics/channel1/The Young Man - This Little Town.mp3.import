@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bolxjvxe5be4u"
+path="res://.godot/imported/The Young Man - This Little Town.mp3-4ea18d87e47371b16d53297ed140fd3b.mp3str"
+
+[deps]
+
+source_file="res://radio/musics/channel1/The Young Man - This Little Town.mp3"
+dest_files=["res://.godot/imported/The Young Man - This Little Town.mp3-4ea18d87e47371b16d53297ed140fd3b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

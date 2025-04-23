@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kc63lsg7lwyq"
+path="res://.godot/imported/Emily Lewis - Denim.mp3-bff2cf82c1649b3721e1d186b9f7bcc1.mp3str"
+
+[deps]
+
+source_file="res://radio/musics/channel3/Emily Lewis - Denim.mp3"
+dest_files=["res://.godot/imported/Emily Lewis - Denim.mp3-bff2cf82c1649b3721e1d186b9f7bcc1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

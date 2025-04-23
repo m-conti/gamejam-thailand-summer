@@ -1,15 +1,28 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdgxphbkkgn3x"]
+[gd_scene load_steps=19 format=3 uid="uid://bdgxphbkkgn3x"]
 
 [ext_resource type="Script" uid="uid://wrbnb8dxegbt" path="res://GameState.gd" id="1_1ainy"]
 [ext_resource type="PackedScene" uid="uid://s4ysxh3xnveh" path="res://entities/player.tscn" id="1_vonw3"]
 [ext_resource type="Script" uid="uid://delpi66snvovv" path="res://level_generator.gd" id="2_vonw3"]
+[ext_resource type="PackedScene" uid="uid://dy1fvvm0dktnc" path="res://radio/radio.tscn" id="3_2orkt"]
 [ext_resource type="Theme" uid="uid://budnckel7rggg" path="res://hud.tres" id="3_km5ld"]
 [ext_resource type="Script" uid="uid://bedbdf12s0ku7" path="res://labels/Distance.gd" id="3_n6hdu"]
 [ext_resource type="PackedScene" uid="uid://bumv2gl7e517t" path="res://entities/zombie.tscn" id="3_oi3di"]
+[ext_resource type="Script" uid="uid://dtrkvqeud1yo8" path="res://radio/channel.gd" id="4_fedht"]
 [ext_resource type="PackedScene" uid="uid://bavuufd0fwb62" path="res://entities/barrage.tscn" id="5_1ainy"]
+[ext_resource type="AudioStream" uid="uid://c8qfnk6risk7w" path="res://radio/musics/channel1/Charly Twins - All the Good Stuff.mp3" id="5_4c15r"]
 [ext_resource type="TileSet" uid="uid://cgqv70nju2sun" path="res://sprites/road.tres" id="5_f2txt"]
 [ext_resource type="Script" uid="uid://duu2sqnd7d1te" path="res://labels/Speed.gd" id="5_i2t4f"]
+[ext_resource type="AudioStream" uid="uid://ct4jl00ucbwi6" path="res://radio/musics/channel1/Leva - Chasing a Hurricane.mp3" id="6_ait7k"]
+[ext_resource type="AudioStream" uid="uid://bbpt0bxjsnbvi" path="res://radio/musics/channel1/Rex Banner - Merry Go Round - No Lead Vocals.mp3" id="7_42xju"]
+[ext_resource type="AudioStream" uid="uid://bolxjvxe5be4u" path="res://radio/musics/channel1/The Young Man - This Little Town.mp3" id="8_v7sqt"]
+[ext_resource type="AudioStream" uid="uid://co4gt84rglnes" path="res://radio/musics/channel1/WEARETHEGOOD - Bad Girls.mp3" id="9_ilwjd"]
 [ext_resource type="PackedScene" uid="uid://b3brah3h0gcdl" path="res://entities/police_with_police_man.tscn" id="10_2orkt"]
+
+[sub_resource type="Resource" id="Resource_y3bce"]
+script = ExtResource("4_fedht")
+sounds = Array[AudioStream]([ExtResource("5_4c15r"), ExtResource("6_ait7k"), ExtResource("7_42xju"), ExtResource("8_v7sqt"), ExtResource("9_ilwjd")])
+display_name = "CountRadio"
+metadata/_custom_type_script = "uid://dtrkvqeud1yo8"
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_1ainy")
@@ -27,6 +40,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Radio" parent="CanvasLayer/Control" instance=ExtResource("3_2orkt")]
+layout_mode = 1
+channels = Array[ExtResource("4_fedht")]([SubResource("Resource_y3bce")])
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control"]
 layout_mode = 1

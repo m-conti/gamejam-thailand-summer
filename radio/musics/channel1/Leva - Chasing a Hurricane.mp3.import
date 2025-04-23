@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ct4jl00ucbwi6"
+path="res://.godot/imported/Leva - Chasing a Hurricane.mp3-147806a07969f4522a7c52b9f92816cd.mp3str"
+
+[deps]
+
+source_file="res://radio/musics/channel1/Leva - Chasing a Hurricane.mp3"
+dest_files=["res://.godot/imported/Leva - Chasing a Hurricane.mp3-147806a07969f4522a7c52b9f92816cd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

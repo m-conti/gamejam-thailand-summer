@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cismhobn3jcyp"
+path="res://.godot/imported/WEARETHEGOOD - Lonely Road.mp3-a4ed591575c47bc468f22427585fb22b.mp3str"
+
+[deps]
+
+source_file="res://radio/musics/channel3/WEARETHEGOOD - Lonely Road.mp3"
+dest_files=["res://.godot/imported/WEARETHEGOOD - Lonely Road.mp3-a4ed591575c47bc468f22427585fb22b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

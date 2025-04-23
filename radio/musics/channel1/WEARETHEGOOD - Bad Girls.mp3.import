@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://co4gt84rglnes"
+path="res://.godot/imported/WEARETHEGOOD - Bad Girls.mp3-77dde2ace172b6e37e864c9bc470aea3.mp3str"
+
+[deps]
+
+source_file="res://radio/musics/channel1/WEARETHEGOOD - Bad Girls.mp3"
+dest_files=["res://.godot/imported/WEARETHEGOOD - Bad Girls.mp3-77dde2ace172b6e37e864c9bc470aea3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

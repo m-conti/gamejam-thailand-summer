@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1pyl8um1x4yn"
+path="res://.godot/imported/SOURWAH - Tribute.mp3-19507e146b0f6f18ed3dba6ef6031db2.mp3str"
+
+[deps]
+
+source_file="res://radio/musics/channel3/SOURWAH - Tribute.mp3"
+dest_files=["res://.godot/imported/SOURWAH - Tribute.mp3-19507e146b0f6f18ed3dba6ef6031db2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
