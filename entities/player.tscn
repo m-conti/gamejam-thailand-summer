@@ -24,9 +24,10 @@ texture = ExtResource("2_b0kkn")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="EattingZone" type="Area2D" parent="."]
+[node name="EatingZone" type="Area2D" parent="."]
+unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EattingZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EatingZone"]
 shape = SubResource("RectangleShape2D_merdl")
 
-[connection signal="body_entered" from="EattingZone" to="." method="_on_eatting_zone_body_entered"]
+[connection signal="collided" from="." to="." method="_on_collided"]

@@ -28,6 +28,7 @@ expand_mode = 2
 
 [node name="Player" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+volume_db = -80.0
 autoplay = true
 
 [connection signal="finished" from="Player" to="." method="_on_player_finished"]

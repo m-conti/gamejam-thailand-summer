@@ -1,4 +1,4 @@
-extends Entity
+class_name PoliceMan extends Entity
 
 
 @export var bullet_speed: float = 600

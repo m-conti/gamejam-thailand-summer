@@ -2,6 +2,8 @@ class_name Entity extends Node2D
 
 
 signal inited(player: Player)
+
+
 var player: Player
 
 
