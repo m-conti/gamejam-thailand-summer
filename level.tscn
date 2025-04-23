@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://bdgxphbkkgn3x"]
+[gd_scene load_steps=75 format=3 uid="uid://bdgxphbkkgn3x"]
 
 [ext_resource type="Script" uid="uid://wrbnb8dxegbt" path="res://GameState.gd" id="1_1ainy"]
 [ext_resource type="PackedScene" uid="uid://s4ysxh3xnveh" path="res://entities/player.tscn" id="1_vonw3"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://c8qfnk6risk7w" path="res://radio/musics/channel1/Charly Twins - All the Good Stuff.mp3" id="5_4c15r"]
 [ext_resource type="TileSet" uid="uid://cgqv70nju2sun" path="res://sprites/road.tres" id="5_f2txt"]
 [ext_resource type="Script" uid="uid://duu2sqnd7d1te" path="res://labels/Speed.gd" id="5_i2t4f"]
+[ext_resource type="Script" uid="uid://dqw18qc7d5l4a" path="res://powers/can_eat.gd" id="5_k1ecl"]
 [ext_resource type="Script" uid="uid://dos5si3drixp2" path="res://radio/sound.gd" id="5_oaehd"]
 [ext_resource type="AudioStream" uid="uid://ct4jl00ucbwi6" path="res://radio/musics/channel1/Leva - Chasing a Hurricane.mp3" id="6_ait7k"]
 [ext_resource type="AudioStream" uid="uid://bbpt0bxjsnbvi" path="res://radio/musics/channel1/Rex Banner - Merry Go Round - No Lead Vocals.mp3" id="7_42xju"]
@@ -25,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://b1onr8dubpaoj" path="res://radio/musics/channel2/The Young Man - Next to You.mp3" id="14_k1ecl"]
 [ext_resource type="AudioStream" uid="uid://kc63lsg7lwyq" path="res://radio/musics/channel3/Emily Lewis - Denim.mp3" id="15_8kok0"]
 [ext_resource type="AudioStream" uid="uid://03nsexhaq87f" path="res://radio/musics/channel3/Ikoliks - Whistle Crystals.mp3" id="16_lrhm2"]
+[ext_resource type="Script" uid="uid://du4mbsqka567r" path="res://powers/slower.gd" id="17_8kok0"]
 [ext_resource type="AudioStream" uid="uid://b1pyl8um1x4yn" path="res://radio/musics/channel3/SOURWAH - Tribute.mp3" id="17_td4uw"]
 [ext_resource type="AudioStream" uid="uid://leyaofphqruh" path="res://radio/musics/channel3/Southern Call - Smoke Show.mp3" id="18_r5f7e"]
 [ext_resource type="AudioStream" uid="uid://cismhobn3jcyp" path="res://radio/musics/channel3/WEARETHEGOOD - Lonely Road.mp3" id="19_wp8k7"]
@@ -35,6 +37,7 @@
 [ext_resource type="AudioStream" uid="uid://p104682tjr3e" path="res://radio/musics/channel5/Louis Island - I Know a Place.mp3" id="24_2hox4"]
 [ext_resource type="AudioStream" uid="uid://dmklt5f7jkjnf" path="res://radio/musics/channel5/Louis Island - Ill Hold On.mp3" id="25_84hvi"]
 [ext_resource type="AudioStream" uid="uid://chglpxxakjlq5" path="res://radio/musics/channel5/Louis Island - Run Away with Me.mp3" id="26_53riq"]
+[ext_resource type="Script" uid="uid://cxm75704eb5ie" path="res://powers/unbreakable.gd" id="26_lrhm2"]
 [ext_resource type="AudioStream" uid="uid://ccf2mvtir2syt" path="res://radio/musics/channel6/Daniel Brown - The Web - Instrumental Version.mp3" id="27_h44gt"]
 [ext_resource type="AudioStream" uid="uid://d3jlxnhfkr7t" path="res://radio/musics/channel6/IamDayLight - Night Drive.mp3" id="28_dqaf4"]
 [ext_resource type="AudioStream" uid="uid://dmcle3g267dwr" path="res://radio/musics/channel6/March the Machine - I Feel Okay.mp3" id="29_umckw"]
@@ -74,6 +77,7 @@ metadata/_custom_type_script = "uid://dos5si3drixp2"
 script = ExtResource("4_fedht")
 sounds = Array[ExtResource("5_oaehd")]([SubResource("Resource_f8y3u"), SubResource("Resource_0k1o5"), SubResource("Resource_k1ecl"), SubResource("Resource_8kok0"), SubResource("Resource_lrhm2")])
 display_name = "Country Radio"
+power = ExtResource("5_k1ecl")
 metadata/_custom_type_script = "uid://dtrkvqeud1yo8"
 
 [sub_resource type="Resource" id="Resource_td4uw"]
@@ -110,6 +114,7 @@ metadata/_custom_type_script = "uid://dos5si3drixp2"
 script = ExtResource("4_fedht")
 sounds = Array[ExtResource("5_oaehd")]([SubResource("Resource_td4uw"), SubResource("Resource_r5f7e"), SubResource("Resource_wp8k7"), SubResource("Resource_na3no"), SubResource("Resource_07udg")])
 display_name = "Road FM"
+power = ExtResource("5_k1ecl")
 metadata/_custom_type_script = "uid://dtrkvqeud1yo8"
 
 [sub_resource type="Resource" id="Resource_4wtct"]
@@ -146,6 +151,7 @@ metadata/_custom_type_script = "uid://dos5si3drixp2"
 script = ExtResource("4_fedht")
 sounds = Array[ExtResource("5_oaehd")]([SubResource("Resource_4wtct"), SubResource("Resource_dlbli"), SubResource("Resource_2hox4"), SubResource("Resource_84hvi"), SubResource("Resource_53riq")])
 display_name = "Pop Vibes"
+power = ExtResource("17_8kok0")
 metadata/_custom_type_script = "uid://dtrkvqeud1yo8"
 
 [sub_resource type="Resource" id="Resource_h44gt"]
@@ -170,6 +176,7 @@ metadata/_custom_type_script = "uid://dos5si3drixp2"
 script = ExtResource("4_fedht")
 sounds = Array[ExtResource("5_oaehd")]([SubResource("Resource_h44gt"), SubResource("Resource_dqaf4"), SubResource("Resource_umckw")])
 display_name = "Chill Mood"
+power = ExtResource("17_8kok0")
 metadata/_custom_type_script = "uid://dtrkvqeud1yo8"
 
 [sub_resource type="Resource" id="Resource_1x5yi"]
@@ -200,6 +207,7 @@ metadata/_custom_type_script = "uid://dos5si3drixp2"
 script = ExtResource("4_fedht")
 sounds = Array[ExtResource("5_oaehd")]([SubResource("Resource_1x5yi"), SubResource("Resource_40yk4"), SubResource("Resource_njfgp"), SubResource("Resource_rw15y")])
 display_name = "Nostalgia"
+power = ExtResource("26_lrhm2")
 metadata/_custom_type_script = "uid://dtrkvqeud1yo8"
 
 [sub_resource type="Resource" id="Resource_t8qre"]
@@ -230,6 +238,7 @@ metadata/_custom_type_script = "uid://dos5si3drixp2"
 script = ExtResource("4_fedht")
 sounds = Array[ExtResource("5_oaehd")]([SubResource("Resource_t8qre"), SubResource("Resource_562xt"), SubResource("Resource_0sd67"), SubResource("Resource_qh1jm")])
 display_name = "Electro Tonic"
+power = ExtResource("26_lrhm2")
 metadata/_custom_type_script = "uid://dtrkvqeud1yo8"
 
 [node name="Level" type="Node2D"]
