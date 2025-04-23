@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://by5arl5viocgm"
+path="res://.godot/imported/Martin Scaglia - Crash - Metallic Dull Impact Heavy Car .wav-abf50f281c0d73f36402fcf006dca855.sample"
+
+[deps]
+
+source_file="res://sounds/car crash/Martin Scaglia - Crash - Metallic Dull Impact Heavy Car .wav"
+dest_files=["res://.godot/imported/Martin Scaglia - Crash - Metallic Dull Impact Heavy Car .wav-abf50f281c0d73f36402fcf006dca855.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

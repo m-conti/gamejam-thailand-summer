@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dy1fvvm0dktnc"]
+[gd_scene load_steps=6 format=3 uid="uid://dy1fvvm0dktnc"]
 
 [ext_resource type="Script" uid="uid://biudoen3pjcgg" path="res://radio/radio.gd" id="1_8caj2"]
 [ext_resource type="Texture2D" uid="uid://c18uhybsv5c0i" path="res://assets/Radio.png" id="1_i27vk"]
+[ext_resource type="Theme" uid="uid://budnckel7rggg" path="res://hud.tres" id="3_yrq6i"]
+[ext_resource type="Script" uid="uid://t7ii0es2428j" path="res://radio/labels/channel.gd" id="4_m8d8c"]
+[ext_resource type="Script" uid="uid://coca1o6yaymcv" path="res://radio/labels/sound.gd" id="5_dn038"]
 
 [node name="Radio" type="Control"]
 layout_mode = 3
@@ -26,9 +29,43 @@ grow_vertical = 0
 texture = ExtResource("1_i27vk")
 expand_mode = 2
 
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.522
+anchor_top = 0.522
+anchor_right = 0.543
+anchor_bottom = 0.522
+offset_left = -110.0
+offset_top = -26.0
+offset_right = 107.547
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="ChannelLabel" type="Label" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_yrq6i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Channel"
+script = ExtResource("4_m8d8c")
+
+[node name="SoundLabel" type="Label" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_yrq6i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Sound"
+text_overrun_behavior = 3
+script = ExtResource("5_dn038")
+
 [node name="Player" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-volume_db = -80.0
+volume_db = -8.0
 autoplay = true
 
+[connection signal="channel_changed" from="." to="TextureRect/VBoxContainer/ChannelLabel" method="_on_radio_channel_changed"]
+[connection signal="sound_changed" from="." to="TextureRect/VBoxContainer/SoundLabel" method="_on_radio_sound_changed"]
 [connection signal="finished" from="Player" to="." method="_on_player_finished"]
