@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bdgxphbkkgn3x"]
+[gd_scene load_steps=72 format=3 uid="uid://bdgxphbkkgn3x"]
 
 [ext_resource type="Script" uid="uid://wrbnb8dxegbt" path="res://GameState.gd" id="1_1ainy"]
 [ext_resource type="PackedScene" uid="uid://s4ysxh3xnveh" path="res://entities/player.tscn" id="1_vonw3"]
@@ -12,16 +12,224 @@
 [ext_resource type="AudioStream" uid="uid://c8qfnk6risk7w" path="res://radio/musics/channel1/Charly Twins - All the Good Stuff.mp3" id="5_4c15r"]
 [ext_resource type="TileSet" uid="uid://cgqv70nju2sun" path="res://sprites/road.tres" id="5_f2txt"]
 [ext_resource type="Script" uid="uid://duu2sqnd7d1te" path="res://labels/Speed.gd" id="5_i2t4f"]
+[ext_resource type="Script" uid="uid://dos5si3drixp2" path="res://radio/sound.gd" id="5_oaehd"]
 [ext_resource type="AudioStream" uid="uid://ct4jl00ucbwi6" path="res://radio/musics/channel1/Leva - Chasing a Hurricane.mp3" id="6_ait7k"]
 [ext_resource type="AudioStream" uid="uid://bbpt0bxjsnbvi" path="res://radio/musics/channel1/Rex Banner - Merry Go Round - No Lead Vocals.mp3" id="7_42xju"]
 [ext_resource type="AudioStream" uid="uid://bolxjvxe5be4u" path="res://radio/musics/channel1/The Young Man - This Little Town.mp3" id="8_v7sqt"]
 [ext_resource type="AudioStream" uid="uid://co4gt84rglnes" path="res://radio/musics/channel1/WEARETHEGOOD - Bad Girls.mp3" id="9_ilwjd"]
 [ext_resource type="PackedScene" uid="uid://b3brah3h0gcdl" path="res://entities/police_with_police_man.tscn" id="10_2orkt"]
+[ext_resource type="AudioStream" uid="uid://h1543467lksk" path="res://radio/musics/channel2/Eli Schmalz - Comin Home for Christmas.mp3" id="10_samc1"]
+[ext_resource type="AudioStream" uid="uid://cbw5yu7gagt0y" path="res://radio/musics/channel2/Elijah Aaron - Heart on the Highway.mp3" id="11_oaehd"]
+[ext_resource type="AudioStream" uid="uid://6y616kqfjfsb" path="res://radio/musics/channel2/Eric Hunker - When It All Ends.mp3" id="12_f8y3u"]
+[ext_resource type="AudioStream" uid="uid://c08po1tir4688" path="res://radio/musics/channel2/Rynn - Good Times.mp3" id="13_0k1o5"]
+[ext_resource type="AudioStream" uid="uid://b1onr8dubpaoj" path="res://radio/musics/channel2/The Young Man - Next to You.mp3" id="14_k1ecl"]
+[ext_resource type="AudioStream" uid="uid://kc63lsg7lwyq" path="res://radio/musics/channel3/Emily Lewis - Denim.mp3" id="15_8kok0"]
+[ext_resource type="AudioStream" uid="uid://03nsexhaq87f" path="res://radio/musics/channel3/Ikoliks - Whistle Crystals.mp3" id="16_lrhm2"]
+[ext_resource type="AudioStream" uid="uid://b1pyl8um1x4yn" path="res://radio/musics/channel3/SOURWAH - Tribute.mp3" id="17_td4uw"]
+[ext_resource type="AudioStream" uid="uid://leyaofphqruh" path="res://radio/musics/channel3/Southern Call - Smoke Show.mp3" id="18_r5f7e"]
+[ext_resource type="AudioStream" uid="uid://cismhobn3jcyp" path="res://radio/musics/channel3/WEARETHEGOOD - Lonely Road.mp3" id="19_wp8k7"]
+[ext_resource type="AudioStream" uid="uid://6q0a64lmv03a" path="res://radio/musics/channel4/Lyra Blue - Treading Water.mp3" id="20_na3no"]
+[ext_resource type="AudioStream" uid="uid://cnyd67kx0nlpg" path="res://radio/musics/channel4/The Likes Of Us - Can’t Lose You.mp3" id="21_07udg"]
+[ext_resource type="AudioStream" uid="uid://bdsh57yb16w5i" path="res://radio/musics/channel4/Willow McKenna - Long Lost.mp3" id="22_4wtct"]
+[ext_resource type="AudioStream" uid="uid://bwluxkcsp046a" path="res://radio/musics/channel5/DaniHaDani - Sail Away.mp3" id="23_dlbli"]
+[ext_resource type="AudioStream" uid="uid://p104682tjr3e" path="res://radio/musics/channel5/Louis Island - I Know a Place.mp3" id="24_2hox4"]
+[ext_resource type="AudioStream" uid="uid://dmklt5f7jkjnf" path="res://radio/musics/channel5/Louis Island - Ill Hold On.mp3" id="25_84hvi"]
+[ext_resource type="AudioStream" uid="uid://chglpxxakjlq5" path="res://radio/musics/channel5/Louis Island - Run Away with Me.mp3" id="26_53riq"]
+[ext_resource type="AudioStream" uid="uid://ccf2mvtir2syt" path="res://radio/musics/channel6/Daniel Brown - The Web - Instrumental Version.mp3" id="27_h44gt"]
+[ext_resource type="AudioStream" uid="uid://d3jlxnhfkr7t" path="res://radio/musics/channel6/IamDayLight - Night Drive.mp3" id="28_dqaf4"]
+[ext_resource type="AudioStream" uid="uid://dmcle3g267dwr" path="res://radio/musics/channel6/March the Machine - I Feel Okay.mp3" id="29_umckw"]
+[ext_resource type="AudioStream" uid="uid://dy14gspgkc6n" path="res://radio/musics/channel6/ZISO - Free Fall.mp3" id="30_1x5yi"]
+
+[sub_resource type="Resource" id="Resource_f8y3u"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("5_4c15r")
+display_name = "Charly Twins - All the Good Stuff"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_0k1o5"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("6_ait7k")
+display_name = "Leva - Chasing a Hurricane"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_k1ecl"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("7_42xju")
+display_name = "Rex Banner - Merry Go Round - No Lead Vocals"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_8kok0"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("8_v7sqt")
+display_name = "The Young Man - This Little Town"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_lrhm2"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("9_ilwjd")
+display_name = "WEARETHEGOOD - Bad Girls"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
 
 [sub_resource type="Resource" id="Resource_y3bce"]
 script = ExtResource("4_fedht")
-sounds = Array[AudioStream]([ExtResource("5_4c15r"), ExtResource("6_ait7k"), ExtResource("7_42xju"), ExtResource("8_v7sqt"), ExtResource("9_ilwjd")])
-display_name = "CountRadio"
+sounds = Array[ExtResource("5_oaehd")]([SubResource("Resource_f8y3u"), SubResource("Resource_0k1o5"), SubResource("Resource_k1ecl"), SubResource("Resource_8kok0"), SubResource("Resource_lrhm2")])
+display_name = "Country Radio"
+metadata/_custom_type_script = "uid://dtrkvqeud1yo8"
+
+[sub_resource type="Resource" id="Resource_td4uw"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("10_samc1")
+display_name = "Eli Schmalz - Comin Home for Christmas"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_r5f7e"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("11_oaehd")
+display_name = "Elijah Aaron - Heart on the Highway"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_wp8k7"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("12_f8y3u")
+display_name = "Eric Hunker - When It All Ends"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_na3no"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("13_0k1o5")
+display_name = "Rynn - Good Times"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_07udg"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("14_k1ecl")
+display_name = "The Young Man - Next to You"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_oif8o"]
+script = ExtResource("4_fedht")
+sounds = Array[ExtResource("5_oaehd")]([SubResource("Resource_td4uw"), SubResource("Resource_r5f7e"), SubResource("Resource_wp8k7"), SubResource("Resource_na3no"), SubResource("Resource_07udg")])
+display_name = "Road FM"
+metadata/_custom_type_script = "uid://dtrkvqeud1yo8"
+
+[sub_resource type="Resource" id="Resource_4wtct"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("15_8kok0")
+display_name = "Emily Lewis - Denim"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_dlbli"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("16_lrhm2")
+display_name = "Ikoliks - Whistle Crystals"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_2hox4"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("17_td4uw")
+display_name = "SOURWAH - Tribute"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_84hvi"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("18_r5f7e")
+display_name = "Southern Call - Smoke Show"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_53riq"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("19_wp8k7")
+display_name = "WEARETHEGOOD - Lonely Road"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_oedhs"]
+script = ExtResource("4_fedht")
+sounds = Array[ExtResource("5_oaehd")]([SubResource("Resource_4wtct"), SubResource("Resource_dlbli"), SubResource("Resource_2hox4"), SubResource("Resource_84hvi"), SubResource("Resource_53riq")])
+display_name = "Pop Vibes"
+metadata/_custom_type_script = "uid://dtrkvqeud1yo8"
+
+[sub_resource type="Resource" id="Resource_h44gt"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("20_na3no")
+display_name = "Lyra Blue - Treading Water"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_dqaf4"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("21_07udg")
+display_name = "The Likes Of Us - Can’t Lose You"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_umckw"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("22_4wtct")
+display_name = "Willow McKenna - Long Lost"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_v5bkr"]
+script = ExtResource("4_fedht")
+sounds = Array[ExtResource("5_oaehd")]([SubResource("Resource_h44gt"), SubResource("Resource_dqaf4"), SubResource("Resource_umckw")])
+display_name = "Chill Mood"
+metadata/_custom_type_script = "uid://dtrkvqeud1yo8"
+
+[sub_resource type="Resource" id="Resource_1x5yi"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("23_dlbli")
+display_name = "DaniHaDani - Sail Away"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_40yk4"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("24_2hox4")
+display_name = "Louis Island - I Know a Place"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_njfgp"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("25_84hvi")
+display_name = "Louis Island - Ill Hold On"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_rw15y"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("26_53riq")
+display_name = "Louis Island - Run Away with Me"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_qr3w1"]
+script = ExtResource("4_fedht")
+sounds = Array[ExtResource("5_oaehd")]([SubResource("Resource_1x5yi"), SubResource("Resource_40yk4"), SubResource("Resource_njfgp"), SubResource("Resource_rw15y")])
+display_name = "Nostalgia"
+metadata/_custom_type_script = "uid://dtrkvqeud1yo8"
+
+[sub_resource type="Resource" id="Resource_t8qre"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("27_h44gt")
+display_name = "Daniel Brown - The Web - Instrumental Version"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_562xt"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("28_dqaf4")
+display_name = "IamDayLight - Night Drive"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_0sd67"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("29_umckw")
+display_name = "March the Machine - I Feel Okay"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_qh1jm"]
+script = ExtResource("5_oaehd")
+stream = ExtResource("30_1x5yi")
+display_name = "ZISO - Free Fall"
+metadata/_custom_type_script = "uid://dos5si3drixp2"
+
+[sub_resource type="Resource" id="Resource_wif62"]
+script = ExtResource("4_fedht")
+sounds = Array[ExtResource("5_oaehd")]([SubResource("Resource_t8qre"), SubResource("Resource_562xt"), SubResource("Resource_0sd67"), SubResource("Resource_qh1jm")])
+display_name = "Electro Tonic"
 metadata/_custom_type_script = "uid://dtrkvqeud1yo8"
 
 [node name="Level" type="Node2D"]
@@ -43,7 +251,7 @@ grow_vertical = 2
 
 [node name="Radio" parent="CanvasLayer/Control" instance=ExtResource("3_2orkt")]
 layout_mode = 1
-channels = Array[ExtResource("4_fedht")]([SubResource("Resource_y3bce")])
+channels = Array[ExtResource("4_fedht")]([SubResource("Resource_y3bce"), SubResource("Resource_oif8o"), SubResource("Resource_oedhs"), SubResource("Resource_v5bkr"), SubResource("Resource_qr3w1"), SubResource("Resource_wif62")])
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
