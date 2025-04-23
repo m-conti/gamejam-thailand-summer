@@ -4,10 +4,13 @@ class_name Power extends Node
 var player: Player
 
 
-static func create(script: Script, player_: Player) -> Power:
+static func add(script: Script, player_: Player) -> void:
+	if player_.power:
+		player_.power.queue_free()
+
 	var node = Node.new()
 	node.set_script(script)
 	node.player = player_
 	player_.add_child(node)
 
-	return node as Power
+	player_.power = node

@@ -10,22 +10,24 @@ signal collided(entity: Entity)
 
 @export var rotation_speed: float = 2.0
 
-@export var power_label: Label
+@export var life_label: Label
 
 @onready var eating_zone: Area2D = %EatingZone
+
+var power: Power
 
 var speed:
 	get: return base_speed + (max_speed * (tanh(6 * ((self.owner as GameState).distance - max_distance / 2) / max_distance) + 1) / 2)
 
-@export var power: int = 1:
+@export var life: int = 1:
 	set(x):
 		if x <= 0:
 			die()
 			return
 
-		power = x
-		if power_label:
-			power_label.text = "Power : " + str(power)
+		life = x
+		if life_label:
+			life_label.text = "Life : " + str(life)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("right"):
@@ -41,7 +43,7 @@ func _on_eating_zone_body_entered(body: Node2D) -> void:
 		return
 	
 	body.queue_free()
-	power += 1
+	life += 1
 
 
 func die():
@@ -49,7 +51,9 @@ func die():
 
 
 func _on_collided(_entity: Entity) -> void:
-	power -= 1
+	life -= 1
 
-func _ready() -> void:
-	Power.create(CanEat, self)
+
+func _on_radio_channel_changed(current: RadioChannel) -> void:
+	assert(current.power != null, "The channel {} needs a power script".format(current, "{}"))
+	Power.add(current.power, self)

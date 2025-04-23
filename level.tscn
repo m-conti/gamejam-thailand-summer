@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://c8qfnk6risk7w" path="res://radio/musics/channel1/Charly Twins - All the Good Stuff.mp3" id="5_4c15r"]
 [ext_resource type="TileSet" uid="uid://cgqv70nju2sun" path="res://sprites/road.tres" id="5_f2txt"]
 [ext_resource type="Script" uid="uid://duu2sqnd7d1te" path="res://labels/Speed.gd" id="5_i2t4f"]
-[ext_resource type="Script" uid="uid://dos5si3drixp2" path="res://radio/sound.gd" id="5_oaehd"]
+[ext_resource type="Script" path="res://radio/sound.gd" id="5_oaehd"]
 [ext_resource type="AudioStream" uid="uid://ct4jl00ucbwi6" path="res://radio/musics/channel1/Leva - Chasing a Hurricane.mp3" id="6_ait7k"]
 [ext_resource type="AudioStream" uid="uid://bbpt0bxjsnbvi" path="res://radio/musics/channel1/Rex Banner - Merry Go Round - No Lead Vocals.mp3" id="7_42xju"]
 [ext_resource type="AudioStream" uid="uid://bolxjvxe5be4u" path="res://radio/musics/channel1/The Young Man - This Little Town.mp3" id="8_v7sqt"]
@@ -235,9 +235,8 @@ metadata/_custom_type_script = "uid://dtrkvqeud1yo8"
 [node name="Level" type="Node2D"]
 script = ExtResource("1_1ainy")
 
-[node name="Player" parent="." node_paths=PackedStringArray("power_label") instance=ExtResource("1_vonw3")]
+[node name="Player" parent="." instance=ExtResource("1_vonw3")]
 unique_name_in_owner = true
-power_label = NodePath("../CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/Power")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -304,3 +303,5 @@ z_index = -1
 position = Vector2(-1, 0)
 tile_map_data = PackedByteArray(0, 0, 44, 0, 217, 255, 3, 0, 2, 0, 0, 0, 0, 0)
 tile_set = ExtResource("5_f2txt")
+
+[connection signal="channel_changed" from="CanvasLayer/Control/Radio" to="Player" method="_on_radio_channel_changed"]
