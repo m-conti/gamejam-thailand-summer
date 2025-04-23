@@ -55,5 +55,5 @@ func _on_collided(_entity: Entity) -> void:
 
 
 func _on_radio_channel_changed(current: RadioChannel) -> void:
-	assert(current.power != null, "The channel {} needs a power script".format(current, "{}"))
+	assert(current.power != null, "The channel " + str(current.display_name) + " needs a power script")
 	Power.add(current.power, self)
