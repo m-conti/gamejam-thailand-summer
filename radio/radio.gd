@@ -10,30 +10,39 @@ var _currentChannelIndex = 0
 var currentChannelIndex:
 	get: return _currentChannelIndex
 	set(value):
+		currentSound.currentTime = %Player.get_playback_position()
 		_currentChannelIndex = (value + len(channels)) % len(channels)
-		currentSoundIndex = 0
+		if currentSoundIndex == -1:
+			currentSoundIndex = randi_range(0, len(currentChannel.sounds) - 1)
 		channel_changed.emit(currentChannel)
+		sound_changed.emit(currentSound)
 var currentChannel: RadioChannel:
 	get: return channels[currentChannelIndex]
 
-var _currentSoundIndex = 0
 var currentSoundIndex:
-	get: return _currentSoundIndex
+	get: return currentChannel.currentIndex
 	set(value):
-		_currentSoundIndex = (value + len(currentChannel.sounds)) % len(currentChannel.sounds)
+		currentChannel.currentIndex = (value + len(currentChannel.sounds)) % len(currentChannel.sounds)
 		sound_changed.emit(currentSound)
 
 var currentSound: RadioSound:
 	get: return currentChannel.sounds[currentSoundIndex]
 
+func _input(event):
+	if event.is_action_pressed("radio_next"):
+		currentChannelIndex += 1
+	if event.is_action_pressed("radio_previous"):
+		currentChannelIndex -= 1
+
 func _ready():
 	sound_changed.connect(play_sound)
 	currentChannelIndex = randi_range(0, len(channels) - 1)
-	currentSoundIndex = randi_range(0, len(currentChannel.sounds) - 1)
 
 func play_sound(current: RadioSound):
 	%Player.stream = current.stream
+	print_debug("seek at : ", current.currentTime)
 	%Player.play()
+	%Player.seek(current.currentTime)
 
 func _on_player_finished():
 	currentSoundIndex += 1
