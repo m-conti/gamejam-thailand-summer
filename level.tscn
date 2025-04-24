@@ -26,7 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://b1onr8dubpaoj" path="res://radio/musics/channel2/The Young Man - Next to You.mp3" id="14_k1ecl"]
 [ext_resource type="AudioStream" uid="uid://kc63lsg7lwyq" path="res://radio/musics/channel3/Emily Lewis - Denim.mp3" id="15_8kok0"]
 [ext_resource type="AudioStream" uid="uid://03nsexhaq87f" path="res://radio/musics/channel3/Ikoliks - Whistle Crystals.mp3" id="16_lrhm2"]
-[ext_resource type="Script" uid="uid://du4mbsqka567r" path="res://powers/slower.gd" id="17_8kok0"]
+[ext_resource type="Script" uid="uid://bsk426tbhiyt4" path="res://powers/day.gd" id="17_8kok0"]
 [ext_resource type="AudioStream" uid="uid://b1pyl8um1x4yn" path="res://radio/musics/channel3/SOURWAH - Tribute.mp3" id="17_td4uw"]
 [ext_resource type="AudioStream" uid="uid://leyaofphqruh" path="res://radio/musics/channel3/Southern Call - Smoke Show.mp3" id="18_r5f7e"]
 [ext_resource type="AudioStream" uid="uid://cismhobn3jcyp" path="res://radio/musics/channel3/WEARETHEGOOD - Lonely Road.mp3" id="19_wp8k7"]
@@ -350,10 +350,10 @@ script = ExtResource("2_vonw3")
 chunk_height = 3
 entities_per_chunk = 3
 player = NodePath("../Player")
-entity_scenes = Dictionary[PackedScene, float]({
-ExtResource("3_oi3di"): 0.0,
-ExtResource("10_2orkt"): 1.0,
-ExtResource("5_1ainy"): 2.0
+entity_scenes = Dictionary[PackedScene, int]({
+ExtResource("3_oi3di"): 0,
+ExtResource("10_2orkt"): 1,
+ExtResource("5_1ainy"): 2
 })
 metadata/_custom_type_script = "uid://delpi66snvovv"
 
@@ -363,7 +363,8 @@ position = Vector2(-1, 0)
 tile_map_data = PackedByteArray(0, 0, 44, 0, 217, 255, 3, 0, 2, 0, 0, 0, 0, 0)
 tile_set = ExtResource("5_f2txt")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="NightFilter" type="CanvasModulate" parent="."]
+unique_name_in_owner = true
 color = Color(0.0899102, 0.15766, 0.319304, 1)
 
 [connection signal="channel_changed" from="CanvasLayer/HUD/Radio" to="Player" method="_on_radio_channel_changed"]
