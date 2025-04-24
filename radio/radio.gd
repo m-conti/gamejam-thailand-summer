@@ -36,13 +36,12 @@ func _input(event):
 
 func _ready():
 	sound_changed.connect(play_sound)
-	currentChannelIndex = randi_range(0, len(channels) - 1)
+	currentChannelIndex = 0
 
 func play_sound(current: RadioSound):
 	%Player.stream = current.stream
 	print_debug("seek at : ", current.currentTime)
-	%Player.play()
-	%Player.seek(current.currentTime)
+	%Player.play(current.currentTime)
 
 func _on_player_finished():
 	currentSoundIndex += 1

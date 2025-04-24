@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://br5568onlghxn"
+path="res://.godot/imported/Effectsworks - Crunch Hunch - Eating Carrot 02.wav-2f4f06fc0fdb3c8f49b79bc2a8f1c8da.sample"
+
+[deps]
+
+source_file="res://sounds/bite/Effectsworks - Crunch Hunch - Eating Carrot 02.wav"
+dest_files=["res://.godot/imported/Effectsworks - Crunch Hunch - Eating Carrot 02.wav-2f4f06fc0fdb3c8f49b79bc2a8f1c8da.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

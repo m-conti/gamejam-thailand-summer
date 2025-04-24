@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bbjpdrnnpe3q4"
+path="res://.godot/imported/Epic Stock Media - Household Source - Crunchy Bite.wav-b45ee0e0a4cb815e9159158c160dc26c.sample"
+
+[deps]
+
+source_file="res://sounds/bite/Epic Stock Media - Household Source - Crunchy Bite.wav"
+dest_files=["res://.godot/imported/Epic Stock Media - Household Source - Crunchy Bite.wav-b45ee0e0a4cb815e9159158c160dc26c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

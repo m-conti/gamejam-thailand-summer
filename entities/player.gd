@@ -42,6 +42,7 @@ func _on_eating_zone_body_entered(body: Node2D) -> void:
 	if body is not Zombie and body is not PoliceMan:
 		return
 	
+	%BiteStreamPlayer.play()
 	body.queue_free()
 	life += 1
 
@@ -50,7 +51,12 @@ func die():
 	get_tree().change_scene_to_file.call_deferred("res://game_over.tscn")
 
 
-func _on_collided(_entity: Entity) -> void:
+func shooted():
+	%ShotedStreamPlayer.play()
+	life -= 1
+
+func _on_collided(entity) -> void:
+	%CollisionStreamPlayer.play()
 	life -= 1
 
 

@@ -1,13 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://s4ysxh3xnveh"]
+[gd_scene load_steps=22 format=3 uid="uid://s4ysxh3xnveh"]
 
 [ext_resource type="Script" uid="uid://dxdfn4lnu72mn" path="res://entities/player.gd" id="1_merdl"]
 [ext_resource type="Texture2D" uid="uid://bvo0ub1obdcnk" path="res://assets/Cars/Car_3_Main_Positions/Car_3_01.png" id="2_b0kkn"]
+[ext_resource type="AudioStream" uid="uid://do0eo3rhayo7x" path="res://sounds/car crash/HD Audio - Destruction - Car Crash Glass Breaking.wav" id="3_6nm46"]
+[ext_resource type="AudioStream" uid="uid://dy1fwo5orf6gl" path="res://sounds/bite/BOOM Library - Insects  Reptiles - Creature Eating Prey Wet Slimy.wav" id="3_i623q"]
+[ext_resource type="AudioStream" uid="uid://br5568onlghxn" path="res://sounds/bite/Effectsworks - Crunch Hunch - Eating Carrot 02.wav" id="4_ef06p"]
+[ext_resource type="AudioStream" uid="uid://bca8k76iarrd0" path="res://sounds/car crash/HD Audio - Destruction - Car Crash Glass Shatter.wav" id="4_i623q"]
+[ext_resource type="AudioStream" uid="uid://cvgnve0b5xuw0" path="res://sounds/car crash/HD Audio - Destruction - Metallic Impact Debris.wav" id="5_ef06p"]
+[ext_resource type="AudioStream" uid="uid://bbjpdrnnpe3q4" path="res://sounds/bite/Epic Stock Media - Household Source - Crunchy Bite.wav" id="5_tjdhl"]
+[ext_resource type="AudioStream" uid="uid://by5arl5viocgm" path="res://sounds/car crash/Martin Scaglia - Crash - Metallic Dull Impact Heavy Car .wav" id="6_tjdhl"]
+[ext_resource type="AudioStream" uid="uid://cj6rs2covd8ul" path="res://sounds/bite/HD Audio - Farm Animals - Horse Eating Grass.wav" id="6_x08pd"]
+[ext_resource type="AudioStream" uid="uid://cuuxlufmfbhst" path="res://sounds/bite/Ni Sound - Filmmaking Props - Apple Bite Chomp Eat Fruit .wav" id="7_dchgp"]
+[ext_resource type="AudioStream" uid="uid://qsv0osyaghw5" path="res://sounds/bite/Ni Sound - Filmmaking Props - Bite Eat Crunchy Food.wav" id="8_kdgjc"]
+[ext_resource type="AudioStream" uid="uid://bw2emm77neaya" path="res://sounds/hit/BOOM Library - Physical Combat - Gun Shot Bullet Impact Hitting Flesh .wav" id="13_oprnr"]
+[ext_resource type="AudioStream" uid="uid://g0rgmfg64x8x" path="res://sounds/hit/Gamemaster Audio - Gunshot - Bullet Hit Sand.wav" id="14_8rie4"]
+[ext_resource type="AudioStream" uid="uid://drb4l28gv1ohh" path="res://sounds/hit/OG SoundFX - Shoot - Bullet Hit.wav" id="15_dp3pk"]
+[ext_resource type="AudioStream" uid="uid://dnlegih6vf7ua" path="res://sounds/hit/Vadi Sound - Gun Point - Single Ricochet Hit Glassy Debris.wav" id="16_cgp7q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u3f3p"]
 size = Vector2(44, 99)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_merdl"]
-size = Vector2(84, 109)
+size = Vector2(187.5, 125.5)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kdgjc"]
+streams_count = 4
+stream_0/stream = ExtResource("3_6nm46")
+stream_1/stream = ExtResource("4_i623q")
+stream_2/stream = ExtResource("5_ef06p")
+stream_3/stream = ExtResource("6_tjdhl")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dchgp"]
+streams_count = 6
+stream_0/stream = ExtResource("3_i623q")
+stream_1/stream = ExtResource("4_ef06p")
+stream_2/stream = ExtResource("5_tjdhl")
+stream_3/stream = ExtResource("6_x08pd")
+stream_4/stream = ExtResource("7_dchgp")
+stream_5/stream = ExtResource("8_kdgjc")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_oprnr"]
+streams_count = 4
+stream_0/stream = ExtResource("13_oprnr")
+stream_1/stream = ExtResource("14_8rie4")
+stream_2/stream = ExtResource("15_dp3pk")
+stream_3/stream = ExtResource("16_cgp7q")
 
 [node name="Player" type="RigidBody2D"]
 collision_layer = 3
@@ -27,6 +64,23 @@ texture = ExtResource("2_b0kkn")
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EatingZone"]
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_merdl")
 
+[node name="CollisionStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_kdgjc")
+
+[node name="BiteStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_dchgp")
+
+[node name="ShotedStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_oprnr")
+volume_db = -10.0
+
 [connection signal="collided" from="." to="." method="_on_collided"]
+[connection signal="finished" from="CollisionStreamPlayer" to="." method="_on_collision_stream_player_finished"]
+[connection signal="finished" from="BiteStreamPlayer" to="." method="_on_collision_stream_player_finished"]
+[connection signal="finished" from="ShotedStreamPlayer" to="." method="_on_collision_stream_player_finished"]

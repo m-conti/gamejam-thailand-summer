@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cuuxlufmfbhst"
+path="res://.godot/imported/Ni Sound - Filmmaking Props - Apple Bite Chomp Eat Fruit .wav-b349e0db1171e8d3050efdfe0963a0bf.sample"
+
+[deps]
+
+source_file="res://sounds/bite/Ni Sound - Filmmaking Props - Apple Bite Chomp Eat Fruit .wav"
+dest_files=["res://.godot/imported/Ni Sound - Filmmaking Props - Apple Bite Chomp Eat Fruit .wav-b349e0db1171e8d3050efdfe0963a0bf.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

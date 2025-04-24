@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6o2ibkr8bh0"]
+[gd_scene load_steps=3 format=3 uid="uid://b6o2ibkr8bh0"]
+
+[ext_resource type="AudioStream" uid="uid://dwomfrxpltm0u" path="res://sounds/car crash/Selkor Studio - Car Crashes - Short Hard Impact Glass Metal Debris.wav" id="1_y26ei"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xapjj"]
 font_size = 100
@@ -26,3 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Game Over"
 label_settings = SubResource("LabelSettings_xapjj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_y26ei")
+autoplay = true

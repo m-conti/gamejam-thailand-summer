@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bw2emm77neaya"
+path="res://.godot/imported/BOOM Library - Physical Combat - Gun Shot Bullet Impact Hitting Flesh .wav-cc0fe92a0c01b1d50626c075e12f0211.sample"
+
+[deps]
+
+source_file="res://sounds/hit/BOOM Library - Physical Combat - Gun Shot Bullet Impact Hitting Flesh .wav"
+dest_files=["res://.godot/imported/BOOM Library - Physical Combat - Gun Shot Bullet Impact Hitting Flesh .wav-cc0fe92a0c01b1d50626c075e12f0211.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

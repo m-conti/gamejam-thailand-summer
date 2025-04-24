@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ulpg5glvhw3j"
+path="res://.godot/imported/Krotos - Trigger - Dragunov Sniper Rifle Shooting Trigger Click.wav-11cc0e6cfbd0afdd79bd23b8be1782a5.sample"
+
+[deps]
+
+source_file="res://sounds/shot/Krotos - Trigger - Dragunov Sniper Rifle Shooting Trigger Click.wav"
+dest_files=["res://.godot/imported/Krotos - Trigger - Dragunov Sniper Rifle Shooting Trigger Click.wav-11cc0e6cfbd0afdd79bd23b8be1782a5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

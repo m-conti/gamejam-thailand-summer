@@ -244,8 +244,10 @@ metadata/_custom_type_script = "uid://dtrkvqeud1yo8"
 [node name="Level" type="Node2D"]
 script = ExtResource("1_1ainy")
 
-[node name="Player" parent="." instance=ExtResource("1_vonw3")]
+[node name="Player" parent="." node_paths=PackedStringArray("life_label") instance=ExtResource("1_vonw3")]
 unique_name_in_owner = true
+life_label = NodePath("../CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/Power")
+life = 100
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -299,11 +301,12 @@ script = ExtResource("5_i2t4f")
 
 [node name="LevelGenerator" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("2_vonw3")
+entities_per_chunk = 3
 player = NodePath("../Player")
 entity_scenes = Dictionary[PackedScene, float]({
 ExtResource("3_oi3di"): 20.0,
 ExtResource("10_2orkt"): 15.0,
-ExtResource("5_1ainy"): 2.0
+ExtResource("5_1ainy"): 20.0
 })
 metadata/_custom_type_script = "uid://delpi66snvovv"
 
