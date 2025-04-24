@@ -53,7 +53,6 @@ func difficulty_to_proba(chunk_idx: int, difficulty: int) -> float:
 func get_random_entity(proba_dist: Dictionary) -> Entity:
 	var entity: Entity = pick_from_proba_dist(proba_dist).instantiate()
 	entity.init(player)
-	entity.get_node("Sprite2D").flip_v = randf() > 0.5
 	return entity
 
 

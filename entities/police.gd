@@ -3,6 +3,11 @@ class_name Police extends Entity
 
 var crashed: bool = false
 
+
+func _ready() -> void:
+	get_node("Sprite2D").flip_v = randf() > 0.5
+
+
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if crashed or state.get_contact_count() == 0:
 		return
