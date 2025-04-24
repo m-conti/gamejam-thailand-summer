@@ -45,3 +45,7 @@ func play_sound(current: RadioSound):
 
 func _on_player_finished():
 	currentSoundIndex += 1
+
+
+func _on_music_slider_value_changed(value):
+	%Player.volume_db = value

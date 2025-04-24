@@ -63,6 +63,7 @@ script = ExtResource("5_dn038")
 
 [node name="Player" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+process_mode = 3
 volume_db = -10.0
 autoplay = true
 

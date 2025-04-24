@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://bdgxphbkkgn3x"]
+[gd_scene load_steps=76 format=3 uid="uid://bdgxphbkkgn3x"]
 
 [ext_resource type="Script" uid="uid://wrbnb8dxegbt" path="res://GameState.gd" id="1_1ainy"]
 [ext_resource type="PackedScene" uid="uid://s4ysxh3xnveh" path="res://entities/player.tscn" id="1_vonw3"]
@@ -42,6 +42,7 @@
 [ext_resource type="AudioStream" uid="uid://d3jlxnhfkr7t" path="res://radio/musics/channel6/IamDayLight - Night Drive.mp3" id="28_dqaf4"]
 [ext_resource type="AudioStream" uid="uid://dmcle3g267dwr" path="res://radio/musics/channel6/March the Machine - I Feel Okay.mp3" id="29_umckw"]
 [ext_resource type="AudioStream" uid="uid://dy14gspgkc6n" path="res://radio/musics/channel6/ZISO - Free Fall.mp3" id="30_1x5yi"]
+[ext_resource type="Script" uid="uid://cou8vd024g2jk" path="res://menu.gd" id="38_8kok0"]
 
 [sub_resource type="Resource" id="Resource_f8y3u"]
 script = ExtResource("5_oaehd")
@@ -246,12 +247,13 @@ script = ExtResource("1_1ainy")
 
 [node name="Player" parent="." node_paths=PackedStringArray("life_label") instance=ExtResource("1_vonw3")]
 unique_name_in_owner = true
-life_label = NodePath("../CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/Power")
+life_label = NodePath("../CanvasLayer/HUD/PanelContainer/MarginContainer/VBoxContainer/Power")
 life = 100
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="HUD" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -259,45 +261,89 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Radio" parent="CanvasLayer/Control" instance=ExtResource("3_2orkt")]
+[node name="Radio" parent="CanvasLayer/HUD" instance=ExtResource("3_2orkt")]
 layout_mode = 1
 channels = Array[ExtResource("4_fedht")]([SubResource("Resource_y3bce"), SubResource("Resource_oif8o"), SubResource("Resource_oedhs"), SubResource("Resource_v5bkr"), SubResource("Resource_qr3w1"), SubResource("Resource_wif62")])
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HUD"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Power" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Power" type="Label" parent="CanvasLayer/HUD/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("3_km5ld")
 text = "Power : 1"
 
-[node name="Distance" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Distance" type="Label" parent="CanvasLayer/HUD/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("3_km5ld")
 text = "Distance : 0"
 script = ExtResource("3_n6hdu")
 
-[node name="Speed" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Speed" type="Label" parent="CanvasLayer/HUD/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("3_km5ld")
 text = "Distance : 0"
 script = ExtResource("5_i2t4f")
+
+[node name="Menu" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("38_8kok0")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Menu/CenterContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Menu/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Menu/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="LabelMusic" type="Label" parent="CanvasLayer/Menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="CanvasLayer/Menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+min_value = -40.0
+max_value = 20.0
+value = -10.0
 
 [node name="LevelGenerator" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("2_vonw3")
@@ -316,4 +362,5 @@ position = Vector2(-1, 0)
 tile_map_data = PackedByteArray(0, 0, 44, 0, 217, 255, 3, 0, 2, 0, 0, 0, 0, 0)
 tile_set = ExtResource("5_f2txt")
 
-[connection signal="channel_changed" from="CanvasLayer/Control/Radio" to="Player" method="_on_radio_channel_changed"]
+[connection signal="channel_changed" from="CanvasLayer/HUD/Radio" to="Player" method="_on_radio_channel_changed"]
+[connection signal="value_changed" from="CanvasLayer/Menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MusicSlider" to="CanvasLayer/HUD/Radio" method="_on_music_slider_value_changed"]
