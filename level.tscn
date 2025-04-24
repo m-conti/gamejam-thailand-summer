@@ -363,5 +363,8 @@ position = Vector2(-1, 0)
 tile_map_data = PackedByteArray(0, 0, 44, 0, 217, 255, 3, 0, 2, 0, 0, 0, 0, 0)
 tile_set = ExtResource("5_f2txt")
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.0899102, 0.15766, 0.319304, 1)
+
 [connection signal="channel_changed" from="CanvasLayer/HUD/Radio" to="Player" method="_on_radio_channel_changed"]
 [connection signal="value_changed" from="CanvasLayer/Menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MusicSlider" to="CanvasLayer/HUD/Radio" method="_on_music_slider_value_changed"]

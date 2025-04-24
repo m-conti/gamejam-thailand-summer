@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://s4ysxh3xnveh"]
+[gd_scene load_steps=23 format=3 uid="uid://s4ysxh3xnveh"]
 
 [ext_resource type="Script" uid="uid://dxdfn4lnu72mn" path="res://entities/player.gd" id="1_merdl"]
 [ext_resource type="Texture2D" uid="uid://bvo0ub1obdcnk" path="res://assets/Cars/Car_3_Main_Positions/Car_3_01.png" id="2_b0kkn"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://g0rgmfg64x8x" path="res://sounds/hit/Gamemaster Audio - Gunshot - Bullet Hit Sand.wav" id="14_8rie4"]
 [ext_resource type="AudioStream" uid="uid://drb4l28gv1ohh" path="res://sounds/hit/OG SoundFX - Shoot - Bullet Hit.wav" id="15_dp3pk"]
 [ext_resource type="AudioStream" uid="uid://dnlegih6vf7ua" path="res://sounds/hit/Vadi Sound - Gun Point - Single Ricochet Hit Glassy Debris.wav" id="16_cgp7q"]
+[ext_resource type="Texture2D" uid="uid://k1s0brb06681" path="res://assets/Cars/Car_Effects/Lights_ON/Lights_ON_000.png" id="17_8rie4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u3f3p"]
 size = Vector2(44, 99)
@@ -79,6 +80,17 @@ stream = SubResource("AudioStreamRandomizer_dchgp")
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_oprnr")
 volume_db = -10.0
+
+[node name="DirectionalLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -40)
+scale = Vector2(3, 1)
+energy = 1.31
+range_layer_min = -2
+range_layer_max = 1
+range_item_cull_mask = 3
+texture = ExtResource("17_8rie4")
+offset = Vector2(0, -340)
+texture_scale = 0.5
 
 [connection signal="collided" from="." to="." method="_on_collided"]
 [connection signal="finished" from="CollisionStreamPlayer" to="." method="_on_collision_stream_player_finished"]
