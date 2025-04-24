@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://chglpxxakjlq5"
+path="res://.godot/imported/Louis Island - Run Away with Me.mp3-078370d104f4b5e81ca1fbf31069ce2b.mp3str"
+
+[deps]
+
+source_file="res://radio/musics/channel2/Louis Island - Run Away with Me.mp3"
+dest_files=["res://.godot/imported/Louis Island - Run Away with Me.mp3-078370d104f4b5e81ca1fbf31069ce2b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

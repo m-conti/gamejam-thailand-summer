@@ -17,15 +17,18 @@ script = ExtResource("1_8caj2")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -593.0
-offset_top = -186.0
+offset_left = -1200.0
+offset_top = -362.0
+offset_right = -400.0
+offset_bottom = -122.0
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_i27vk")
 expand_mode = 2
 
@@ -58,6 +61,47 @@ theme = ExtResource("3_yrq6i")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Sound"
+text_overrun_behavior = 3
+script = ExtResource("5_dn038")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 0
+offset_left = 561.0
+offset_top = 96.0
+offset_right = 585.0
+offset_bottom = 171.0
+theme_override_constants/separation = 0
+
+[node name="PowerEat" type="Label" parent="TextureRect/VBoxContainer2"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.466667)
+layout_mode = 2
+theme = ExtResource("3_yrq6i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "🍖"
+text_overrun_behavior = 3
+script = ExtResource("5_dn038")
+
+[node name="PowerUnbreakable" type="Label" parent="TextureRect/VBoxContainer2"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.466667)
+layout_mode = 2
+theme = ExtResource("3_yrq6i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "🚔"
+text_overrun_behavior = 3
+script = ExtResource("5_dn038")
+
+[node name="PowerDay" type="Label" parent="TextureRect/VBoxContainer2"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.466667)
+layout_mode = 2
+theme = ExtResource("3_yrq6i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "☀️"
 text_overrun_behavior = 3
 script = ExtResource("5_dn038")
 

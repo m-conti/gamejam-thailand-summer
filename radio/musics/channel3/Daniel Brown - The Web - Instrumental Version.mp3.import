@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ccf2mvtir2syt"
+path="res://.godot/imported/Daniel Brown - The Web - Instrumental Version.mp3-9c6143c5a0ff5931a2eb53ab61b07bfe.mp3str"
+
+[deps]
+
+source_file="res://radio/musics/channel3/Daniel Brown - The Web - Instrumental Version.mp3"
+dest_files=["res://.godot/imported/Daniel Brown - The Web - Instrumental Version.mp3-9c6143c5a0ff5931a2eb53ab61b07bfe.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

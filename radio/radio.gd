@@ -14,6 +14,12 @@ var currentChannelIndex:
 		_currentChannelIndex = (value + len(channels)) % len(channels)
 		if currentSoundIndex == -1:
 			currentSoundIndex = randi_range(0, len(currentChannel.sounds) - 1)
+		
+		var power = currentChannel.power.new()
+		%PowerEat.self_modulate = Color(1, 1, 1, 1 if power is CanEat else 0.5)
+		%PowerUnbreakable.self_modulate = Color(1, 1, 1, 1 if power is Unbreakable else 0.5)
+		%PowerDay.self_modulate = Color(1, 1, 1, 1 if power is Day else 0.5)
+
 		channel_changed.emit(currentChannel)
 		sound_changed.emit(currentSound)
 var currentChannel: RadioChannel:

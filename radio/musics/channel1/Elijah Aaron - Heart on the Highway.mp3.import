@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cbw5yu7gagt0y"
+path="res://.godot/imported/Elijah Aaron - Heart on the Highway.mp3-f5e9a32becd9c63f387300d8c305c24a.mp3str"
+
+[deps]
+
+source_file="res://radio/musics/channel1/Elijah Aaron - Heart on the Highway.mp3"
+dest_files=["res://.godot/imported/Elijah Aaron - Heart on the Highway.mp3-f5e9a32becd9c63f387300d8c305c24a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

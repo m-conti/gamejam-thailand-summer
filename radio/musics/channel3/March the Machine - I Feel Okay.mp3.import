@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmcle3g267dwr"
+path="res://.godot/imported/March the Machine - I Feel Okay.mp3-3f1eb5e1cfc50306667d6a3b6b9ad9b3.mp3str"
+
+[deps]
+
+source_file="res://radio/musics/channel3/March the Machine - I Feel Okay.mp3"
+dest_files=["res://.godot/imported/March the Machine - I Feel Okay.mp3-3f1eb5e1cfc50306667d6a3b6b9ad9b3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://6q0a64lmv03a"
+path="res://.godot/imported/Lyra Blue - Treading Water.mp3-48e06d47cdfa13ff347ac81dc1635b5e.mp3str"
+
+[deps]
+
+source_file="res://radio/musics/channel2/Lyra Blue - Treading Water.mp3"
+dest_files=["res://.godot/imported/Lyra Blue - Treading Water.mp3-48e06d47cdfa13ff347ac81dc1635b5e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
