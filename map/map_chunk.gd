@@ -24,5 +24,8 @@ func _ready():
 		%TileMapLayer.set_cell(Vector2(0, j), 2, Vector2(0, 0))
 		%TileMapLayer.set_cell(Vector2(chunk_width - 1, j), 2, Vector2(1, 0))
 
+		for i in 20:
+			(%TileMapLayer2 as TileMapLayer).set_cell(Vector2(-10 + i, j), 0, Vector2(0, 0))
+
 func set_index(index: int):
 	self.position = Vector2(-self.width / 2, index * -self.height)

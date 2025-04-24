@@ -347,6 +347,7 @@ value = -10.0
 
 [node name="LevelGenerator" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("2_vonw3")
+chunk_height = 3
 entities_per_chunk = 3
 player = NodePath("../Player")
 entity_scenes = Dictionary[PackedScene, float]({

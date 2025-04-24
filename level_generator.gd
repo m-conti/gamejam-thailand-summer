@@ -8,6 +8,8 @@ var ChunkScn = load("res://map/map_chunk.tscn")
 
 @export var chunk_height := 2
 @export var chunk_width := 4
+@export var preload_chunk := 4
+@export var unload_chunk := 2
 
 const CHUNK_PART_SIZE := 512
 
@@ -103,9 +105,9 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if -player.position.y > (min_chunk_idx + 2) * (chunk_height * CHUNK_PART_SIZE):
+	if -player.position.y > (min_chunk_idx + preload_chunk) * (chunk_height * CHUNK_PART_SIZE):
 		remove_chunk()
 	
-	if -player.position.y > (max_chunk_idx - 1) * (chunk_height * CHUNK_PART_SIZE):
+	if -player.position.y > (max_chunk_idx - unload_chunk) * (chunk_height * CHUNK_PART_SIZE):
 		generate_chunk()
 		
