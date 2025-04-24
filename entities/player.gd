@@ -20,7 +20,7 @@ var distance:
 	get: return self.owner.distance
 
 var speed:
-	get: return base_speed + (1 - (max_distance - distance) / max_distance) * (max_speed - base_speed)
+	get: return min(base_speed + (1 - (max_distance - distance) / max_distance) * (max_speed - base_speed), max_speed)
 
 @export var life: int = 1:
 	set(x):

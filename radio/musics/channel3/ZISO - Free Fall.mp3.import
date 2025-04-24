@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dy14gspgkc6n"
+path="res://.godot/imported/ZISO - Free Fall.mp3-852741fc70134af07a422e4cb36edfcc.mp3str"
+
+[deps]
+
+source_file="res://radio/musics/channel3/ZISO - Free Fall.mp3"
+dest_files=["res://.godot/imported/ZISO - Free Fall.mp3-852741fc70134af07a422e4cb36edfcc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

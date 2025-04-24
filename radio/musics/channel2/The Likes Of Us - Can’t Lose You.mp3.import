@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cnyd67kx0nlpg"
+path="res://.godot/imported/The Likes Of Us - Can’t Lose You.mp3-d1fd32dd8659948c52bcffd5cd50fdff.mp3str"
+
+[deps]
+
+source_file="res://radio/musics/channel2/The Likes Of Us - Can’t Lose You.mp3"
+dest_files=["res://.godot/imported/The Likes Of Us - Can’t Lose You.mp3-d1fd32dd8659948c52bcffd5cd50fdff.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
