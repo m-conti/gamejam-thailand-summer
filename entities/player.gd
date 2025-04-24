@@ -16,8 +16,11 @@ signal collided(entity: Entity)
 
 var power: Power
 
+var distance:
+	get: return self.owner.distance
+
 var speed:
-	get: return base_speed + (max_speed * (tanh(6 * ((self.owner as GameState).distance - max_distance / 2) / max_distance) + 1) / 2)
+	get: return base_speed + (1 - (max_distance - distance) / max_distance) * (max_speed - base_speed)
 
 @export var life: int = 1:
 	set(x):
@@ -55,7 +58,7 @@ func shooted():
 	%ShotedStreamPlayer.play()
 	life -= 1
 
-func _on_collided(entity) -> void:
+func _on_collided(_entity) -> void:
 	%CollisionStreamPlayer.play()
 	life -= 1
 

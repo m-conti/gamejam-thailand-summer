@@ -4,7 +4,7 @@ class_name LevelGenerator extends Node2D
 const MAX_SPAWN_ATTEMPT = 50
 
 
-var ChunkScn = load("res://map/map_chunk.tscn")
+const chunkScn = preload("res://map/map_chunk.tscn")
 
 @export var chunk_height := 2
 @export var chunk_width := 4
@@ -16,7 +16,7 @@ const CHUNK_PART_SIZE := 512
 @export var entities_per_chunk: int = 10
 
 @export var player: Player
-@export var entity_scenes: Dictionary[PackedScene, float] = {}
+@export var entity_scenes: Dictionary[PackedScene, int] = {}
 
 var min_chunk_idx: int = 0
 var max_chunk_idx: int = 0
@@ -37,8 +37,21 @@ func pick_from_proba_dist(proba_dist: Dictionary) -> Variant:
 	return null
 
 
-func get_random_entity() -> Entity:
-	var entity: Entity = pick_from_proba_dist(entity_scenes).instantiate()
+func difficulty_to_proba(chunk_idx: int, difficulty: int) -> float:
+	if chunk_idx <= 8:
+		return [0.9, 0.1, 0.0][difficulty]
+	elif chunk_idx <= 64:
+		return [0.7, 0.2, 0.1][difficulty]
+	elif chunk_idx <= 256:
+		return [0.5, 0.3, 0.2][difficulty]
+	elif chunk_idx <= 1024:
+		return [0.3, 0.4, 0.3][difficulty]
+	else:
+		return [0.1, 0.5, 0.4][difficulty]
+
+
+func get_random_entity(proba_dist: Dictionary) -> Entity:
+	var entity: Entity = pick_from_proba_dist(proba_dist).instantiate()
 	entity.init(player)
 	entity.get_node("Sprite2D").flip_v = randf() > 0.5
 	return entity
@@ -62,8 +75,12 @@ func generate_chunk() -> void:
 	var chunk_idx = max_chunk_idx + 1
 	max_chunk_idx = chunk_idx
 
+	var proba_dist: Dictionary = {}
+	for entity in entity_scenes:
+		proba_dist[entity] = difficulty_to_proba(chunk_idx, entity_scenes[entity])
+
 	var entities_rect: Array[Rect2] = []
-	var chunk: MapChunk = ChunkScn.instantiate()
+	var chunk: MapChunk = chunkScn.instantiate()
 	chunk.chunk_height = chunk_height
 	chunk.chunk_width = chunk_width
 	add_child(chunk)
@@ -72,14 +89,12 @@ func generate_chunk() -> void:
 
 	for i in entities_per_chunk:
 		for _attempt in MAX_SPAWN_ATTEMPT:
-			var entity: Entity = get_random_entity()
+			var entity: Entity = get_random_entity(proba_dist)
 			var rect: Rect2 = get_rect(entity)
 			entity.position = Vector2(randf_range(0, chunk.width - rect.size.x), randf_range(0, chunk.height - rect.size.y))
 			rect.position += entity.global_position
 			entity.position += rect.size / 2
 
-			# if not chunk.rect.encloses(rect):
-			# 	continue
 			if entities_rect.any(func(other_rect: Rect2): return rect.intersects(other_rect)):
 				continue
 

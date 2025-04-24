@@ -351,9 +351,9 @@ chunk_height = 3
 entities_per_chunk = 3
 player = NodePath("../Player")
 entity_scenes = Dictionary[PackedScene, float]({
-ExtResource("3_oi3di"): 20.0,
-ExtResource("10_2orkt"): 15.0,
-ExtResource("5_1ainy"): 20.0
+ExtResource("3_oi3di"): 0.0,
+ExtResource("10_2orkt"): 1.0,
+ExtResource("5_1ainy"): 2.0
 })
 metadata/_custom_type_script = "uid://delpi66snvovv"
 
