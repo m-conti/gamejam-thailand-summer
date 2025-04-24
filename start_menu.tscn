@@ -1,23 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6o2ibkr8bh0"]
+[gd_scene load_steps=3 format=3 uid="uid://b5p3dfgk2wl7t"]
 
-[ext_resource type="AudioStream" uid="uid://dwomfrxpltm0u" path="res://sounds/car crash/Selkor Studio - Car Crashes - Short Hard Impact Glass Metal Debris.wav" id="1_y26ei"]
-[ext_resource type="Script" uid="uid://dexq2uhew6gp1" path="res://game_over.gd" id="1_yxx3c"]
+[ext_resource type="Script" uid="uid://bhhtv788d2tfd" path="res://start_menu.gd" id="1_ia0g5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xapjj"]
 font_size = 100
 
-[node name="GameOver" type="Control"]
+[node name="StartMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_yxx3c")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_y26ei")
-autoplay = true
+script = ExtResource("1_ia0g5")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -50,18 +45,26 @@ theme_override_constants/margin_bottom = 50
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-text = "Game Over"
+text = "Enter your name"
 label_settings = SubResource("LabelSettings_xapjj")
+horizontal_alignment = 1
 
-[node name="Restart" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "restart"
+placeholder_text = "Pseudo"
+alignment = 1
+
+[node name="Play" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "play"
 
 [node name="LeaderBoard" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "leaderboard"
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/LeaderBoard" to="." method="_on_leader_board_pressed"]

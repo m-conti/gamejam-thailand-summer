@@ -51,6 +51,7 @@ func _on_eating_zone_body_entered(body: Node2D) -> void:
 
 
 func die():
+	Server.upload_score(distance)
 	get_tree().change_scene_to_file.call_deferred("res://game_over.tscn")
 
 

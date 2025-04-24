@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Thailand Summer"
-run/main_scene="uid://bdgxphbkkgn3x"
+run/main_scene="uid://b5p3dfgk2wl7t"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Server="*res://leaderboard/server.gd"
 
 [debug]
 

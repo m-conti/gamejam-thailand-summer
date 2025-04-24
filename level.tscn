@@ -248,7 +248,6 @@ script = ExtResource("1_1ainy")
 [node name="Player" parent="." node_paths=PackedStringArray("life_label") instance=ExtResource("1_vonw3")]
 unique_name_in_owner = true
 life_label = NodePath("../CanvasLayer/HUD/PanelContainer/MarginContainer/VBoxContainer/Power")
-life = 100
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
