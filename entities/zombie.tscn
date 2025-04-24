@@ -1,12 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bumv2gl7e517t"]
+[gd_scene load_steps=4 format=3 uid="uid://bumv2gl7e517t"]
 
 [ext_resource type="Script" uid="uid://ch5ybkobangpg" path="res://entities/zombie.gd" id="1_fobxw"]
-
-[sub_resource type="Gradient" id="Gradient_fobxw"]
-colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_fobxw"]
-gradient = SubResource("Gradient_fobxw")
+[ext_resource type="Texture2D" uid="uid://cldxh7m4ogw54" path="res://assets/Player/Idle2.png" id="2_i60gn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i60gn"]
 size = Vector2(64, 64)
@@ -15,7 +10,12 @@ size = Vector2(64, 64)
 script = ExtResource("1_fobxw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_fobxw")
+unique_name_in_owner = true
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_i60gn")
+hframes = 3
+vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_i60gn")
