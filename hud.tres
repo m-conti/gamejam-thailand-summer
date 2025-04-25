@@ -1,4 +1,8 @@
-[gd_resource type="Theme" format=3 uid="uid://budnckel7rggg"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://budnckel7rggg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jysg7"]
+region_rect = Rect2(10, 10, 28, 28)
 
 [resource]
 Label/font_sizes/font_size = 32
+Panel/styles/panel = SubResource("StyleBoxTexture_jysg7")

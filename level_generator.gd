@@ -43,11 +43,11 @@ func difficulty_to_proba(chunk_idx: int, difficulty: int) -> float:
 	elif chunk_idx <= 64:
 		return [0.7, 0.2, 0.1][difficulty]
 	elif chunk_idx <= 256:
-		return [0.5, 0.3, 0.2][difficulty]
+		return [0.4, 0.4, 0.2][difficulty]
 	elif chunk_idx <= 1024:
-		return [0.3, 0.4, 0.3][difficulty]
+		return [0.2, 0.5, 0.3][difficulty]
 	else:
-		return [0.1, 0.5, 0.4][difficulty]
+		return [0.0, 0.6, 0.4][difficulty]
 
 
 func get_random_entity(proba_dist: Dictionary) -> Entity:

@@ -43,10 +43,10 @@ func _input(event):
 func _ready():
 	sound_changed.connect(play_sound)
 	currentChannelIndex = 0
+	%Player.volume_db = GlobalParameters.sound_level
 
 func play_sound(current: RadioSound):
 	%Player.stream = current.stream
-	print_debug("seek at : ", current.currentTime)
 	%Player.play(current.currentTime)
 
 func _on_player_finished():
