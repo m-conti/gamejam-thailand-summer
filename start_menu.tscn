@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://b5p3dfgk2wl7t"]
+[gd_scene load_steps=63 format=3 uid="uid://b5p3dfgk2wl7t"]
 
 [ext_resource type="Script" uid="uid://bhhtv788d2tfd" path="res://start_menu.gd" id="1_ia0g5"]
 [ext_resource type="PackedScene" uid="uid://dy1fvvm0dktnc" path="res://radio/radio.tscn" id="2_oqkqq"]
@@ -28,7 +28,13 @@
 [ext_resource type="AudioStream" uid="uid://cismhobn3jcyp" path="res://radio/musics/channel3/WEARETHEGOOD - Lonely Road.mp3" id="26_vg7tm"]
 [ext_resource type="AudioStream" uid="uid://bdsh57yb16w5i" path="res://radio/musics/channel3/Willow McKenna - Long Lost.mp3" id="27_ru1fq"]
 [ext_resource type="AudioStream" uid="uid://dy14gspgkc6n" path="res://radio/musics/channel3/ZISO - Free Fall.mp3" id="28_d0op7"]
+[ext_resource type="Texture2D" uid="uid://c3eqbaytagene" path="res://assets/up_0.png" id="29_u4y83"]
 [ext_resource type="Script" uid="uid://c7kb5xfkpu78d" path="res://music_slider.gd" id="29_yddg6"]
+[ext_resource type="Texture2D" uid="uid://qrmjicwfrnc0" path="res://assets/up_1.png" id="30_85w21"]
+[ext_resource type="Texture2D" uid="uid://ec4uufiibiw" path="res://assets/down_0.png" id="31_8w6hp"]
+[ext_resource type="Texture2D" uid="uid://cc6dtixu1w0ox" path="res://assets/down_1.png" id="32_a6nfu"]
+[ext_resource type="Shader" uid="uid://s7h4j1b1t6e0" path="res://water.gdshader" id="34_8w6hp"]
+[ext_resource type="Texture2D" uid="uid://be5ogcw3j3ohf" path="res://assets/water_tile.png" id="35_a6nfu"]
 
 [sub_resource type="Resource" id="Resource_uuqa8"]
 script = ExtResource("5_opkdy")
@@ -177,8 +183,25 @@ display_name = "Day Light"
 power = ExtResource("21_lsr3t")
 metadata/_custom_type_script = "uid://dtrkvqeud1yo8"
 
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_g8l62"]
+frames = 4
+frame_0/texture = ExtResource("29_u4y83")
+frame_1/texture = ExtResource("30_85w21")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("31_8w6hp")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("32_a6nfu")
+frame_3/duration = 1.0
+
 [sub_resource type="LabelSettings" id="LabelSettings_xapjj"]
 font_size = 100
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g8l62"]
+shader = ExtResource("34_8w6hp")
+shader_parameter/AMPLITUDE = 19.436
+shader_parameter/FREQUENCY = 3.289
+shader_parameter/DISTORTION_AMOUNT = 17.868
+shader_parameter/DISTORTION_SPEED = 1.317
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -197,6 +220,24 @@ grow_horizontal = 1
 grow_vertical = 1
 mouse_filter = 2
 channels = Array[ExtResource("3_yddg6")]([SubResource("Resource_07udg"), SubResource("Resource_y3bce"), SubResource("Resource_umckw")])
+
+[node name="TextureRect2" type="TextureRect" parent="Radio"]
+z_index = 2
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1213.0
+offset_top = -216.0
+offset_right = -1173.0
+offset_bottom = -176.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(4, 4)
+texture = SubResource("AnimatedTexture_g8l62")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -261,6 +302,22 @@ min_value = -40.0
 max_value = 20.0
 value = -10.0
 script = ExtResource("29_yddg6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -4
+material = SubResource("ShaderMaterial_g8l62")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -347.0
+offset_top = -238.0
+offset_right = -347.0
+offset_bottom = -238.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("35_a6nfu")
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/LeaderBoard" to="." method="_on_leader_board_pressed"]
