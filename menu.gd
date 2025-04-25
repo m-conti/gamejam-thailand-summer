@@ -1,9 +1,9 @@
 extends Control
 
 func toggle_pause():
-	var pause = !get_tree().paused
+	var pause = not get_tree().paused
 	get_tree().paused = pause
-	%HUD.visible = !pause
+	%HUD.visible = not pause
 	%Menu.visible = pause
 
 func _input(event):

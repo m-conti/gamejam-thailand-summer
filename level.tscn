@@ -37,7 +37,7 @@
 [ext_resource type="Script" uid="uid://cxm75704eb5ie" path="res://powers/unbreakable.gd" id="26_lrhm2"]
 [ext_resource type="AudioStream" uid="uid://bdsh57yb16w5i" path="res://radio/musics/channel3/Willow McKenna - Long Lost.mp3" id="27_f8y3u"]
 [ext_resource type="AudioStream" uid="uid://dy14gspgkc6n" path="res://radio/musics/channel3/ZISO - Free Fall.mp3" id="28_0k1o5"]
-[ext_resource type="Script" uid="uid://c7kb5xfkpu78d" path="res://music_slider.gd" id="34_oaehd"]
+[ext_resource type="Script" path="res://music_slider.gd" id="34_oaehd"]
 [ext_resource type="Script" uid="uid://cou8vd024g2jk" path="res://menu.gd" id="38_8kok0"]
 
 [sub_resource type="Resource" id="Resource_uuqa8"]
@@ -206,6 +206,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Radio" parent="CanvasLayer/HUD" instance=ExtResource("3_2orkt")]
+z_index = 0
 layout_mode = 1
 channels = Array[ExtResource("4_fedht")]([SubResource("Resource_07udg"), SubResource("Resource_y3bce"), SubResource("Resource_umckw")])
 
@@ -290,6 +291,14 @@ max_value = 20.0
 value = -10.0
 script = ExtResource("34_oaehd")
 
+[node name="Restart" type="Button" parent="CanvasLayer/Menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="Quit" type="Button" parent="CanvasLayer/Menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Save Score & Quit"
+
 [node name="LevelGenerator" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("2_vonw3")
 chunk_height = 3
@@ -315,3 +324,5 @@ color = Color(0.0899102, 0.15766, 0.319304, 1)
 [connection signal="channel_changed" from="CanvasLayer/HUD/Radio" to="Player" method="_on_radio_channel_changed"]
 [connection signal="value_changed" from="CanvasLayer/Menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MusicSlider" to="CanvasLayer/HUD/Radio" method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MusicSlider" to="CanvasLayer/Menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MusicSlider" method="_on_value_changed"]
+[connection signal="pressed" from="CanvasLayer/Menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Restart" to="Player" method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Quit" to="Player" method="_on_quit_pressed"]

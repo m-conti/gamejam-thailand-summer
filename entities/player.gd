@@ -67,3 +67,15 @@ func _on_collided(_entity) -> void:
 func _on_radio_channel_changed(current: RadioChannel) -> void:
 	assert(current.power != null, "The channel " + str(current.display_name) + " needs a power script")
 	Power.add(current.power, self)
+
+
+func _on_restart_pressed() -> void:
+	Server.upload_score(distance)
+	owner.get_node("%Menu").toggle_pause()
+	get_tree().reload_current_scene()
+
+
+func _on_quit_pressed() -> void:
+	Server.upload_score(distance)
+	owner.get_node("%Menu").toggle_pause()
+	get_tree().change_scene_to_file("res://start_menu.tscn")

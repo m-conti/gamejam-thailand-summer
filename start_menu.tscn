@@ -29,7 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://bdsh57yb16w5i" path="res://radio/musics/channel3/Willow McKenna - Long Lost.mp3" id="27_ru1fq"]
 [ext_resource type="AudioStream" uid="uid://dy14gspgkc6n" path="res://radio/musics/channel3/ZISO - Free Fall.mp3" id="28_d0op7"]
 [ext_resource type="Texture2D" uid="uid://c3eqbaytagene" path="res://assets/up_0.png" id="29_u4y83"]
-[ext_resource type="Script" uid="uid://c7kb5xfkpu78d" path="res://music_slider.gd" id="29_yddg6"]
+[ext_resource type="Script" path="res://music_slider.gd" id="29_yddg6"]
 [ext_resource type="Texture2D" uid="uid://qrmjicwfrnc0" path="res://assets/up_1.png" id="30_85w21"]
 [ext_resource type="Texture2D" uid="uid://ec4uufiibiw" path="res://assets/down_0.png" id="31_8w6hp"]
 [ext_resource type="Texture2D" uid="uid://cc6dtixu1w0ox" path="res://assets/down_1.png" id="32_a6nfu"]

@@ -24,7 +24,7 @@ func _on_play_pressed() -> void:
 		return
 	
 	await Server.change_player_name(pseudo)
-	get_tree().change_scene_to_packed(preload("res://level.tscn"))
+	get_tree().change_scene_to_file("res://level.tscn")
 
 
 func _on_leader_board_pressed() -> void:
