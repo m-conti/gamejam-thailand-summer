@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://b5p3dfgk2wl7t"]
+[gd_scene load_steps=64 format=3 uid="uid://b5p3dfgk2wl7t"]
 
 [ext_resource type="Script" uid="uid://bhhtv788d2tfd" path="res://start_menu.gd" id="1_ia0g5"]
 [ext_resource type="PackedScene" uid="uid://dy1fvvm0dktnc" path="res://radio/radio.tscn" id="2_oqkqq"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://qrmjicwfrnc0" path="res://assets/up_1.png" id="30_85w21"]
 [ext_resource type="Texture2D" uid="uid://ec4uufiibiw" path="res://assets/down_0.png" id="31_8w6hp"]
 [ext_resource type="Texture2D" uid="uid://cc6dtixu1w0ox" path="res://assets/down_1.png" id="32_a6nfu"]
+[ext_resource type="Theme" uid="uid://budnckel7rggg" path="res://hud.tres" id="33_a6nfu"]
 [ext_resource type="Shader" uid="uid://s7h4j1b1t6e0" path="res://water.gdshader" id="34_8w6hp"]
 [ext_resource type="Texture2D" uid="uid://be5ogcw3j3ohf" path="res://assets/water_tile.png" id="35_a6nfu"]
 
@@ -270,6 +271,7 @@ theme_override_constants/margin_bottom = 50
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
+theme = ExtResource("33_a6nfu")
 text = "Enter your name"
 label_settings = SubResource("LabelSettings_xapjj")
 horizontal_alignment = 1
@@ -277,22 +279,27 @@ horizontal_alignment = 1
 [node name="LineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("33_a6nfu")
 theme_override_font_sizes/font_size = 60
 placeholder_text = "Pseudo"
 alignment = 1
 
 [node name="Play" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("33_a6nfu")
 theme_override_font_sizes/font_size = 60
 text = "play"
 
 [node name="LeaderBoard" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("33_a6nfu")
 theme_override_font_sizes/font_size = 60
 text = "leaderboard"
 
 [node name="LabelMusic" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("33_a6nfu")
+theme_override_font_sizes/font_size = 50
 text = "Music"
 
 [node name="MusicSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer"]
@@ -317,6 +324,7 @@ offset_bottom = -238.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
+mouse_filter = 2
 texture = ExtResource("35_a6nfu")
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]

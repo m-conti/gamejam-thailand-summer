@@ -1,8 +1,13 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://budnckel7rggg"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://budnckel7rggg"]
+
+[ext_resource type="FontFile" uid="uid://0yqun043o85d" path="res://AnnieUseYourTelescope-Regular.ttf" id="1_bj5e1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jysg7"]
 region_rect = Rect2(10, 10, 28, 28)
 
 [resource]
+Button/fonts/font = ExtResource("1_bj5e1")
 Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_bj5e1")
+LineEdit/fonts/font = ExtResource("1_bj5e1")
 Panel/styles/panel = SubResource("StyleBoxTexture_jysg7")

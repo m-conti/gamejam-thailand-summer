@@ -53,7 +53,7 @@ theme_override_constants/separation = 0
 layout_mode = 2
 theme = ExtResource("3_yrq6i")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 24
 text = "Channel"
 script = ExtResource("4_m8d8c")
 
@@ -61,7 +61,7 @@ script = ExtResource("4_m8d8c")
 layout_mode = 2
 theme = ExtResource("3_yrq6i")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 22
 text = "Sound"
 text_overrun_behavior = 3
 script = ExtResource("5_dn038")
